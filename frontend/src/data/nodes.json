@@ -1,0 +1,4502 @@
+[
+  {
+    "id": "node-1",
+    "name": "Ghawar Oil Field",
+    "lat": 25.4,
+    "lng": 49.6,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-2",
+    "name": "Safaniya Oil Field",
+    "lat": 28.3,
+    "lng": 48.75,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-3",
+    "name": "Manifa Oil Field",
+    "lat": 27.65,
+    "lng": 48.97,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-4",
+    "name": "Berri Oil Field",
+    "lat": 27.2,
+    "lng": 49.72,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-5",
+    "name": "Qatif Oil Field",
+    "lat": 26.55,
+    "lng": 50.02,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-6",
+    "name": "Abqaiq Oil Field",
+    "lat": 25.93,
+    "lng": 49.67,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-7",
+    "name": "Shaybah Oil Field",
+    "lat": 22.52,
+    "lng": 53.97,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-8",
+    "name": "Khurais Oil Field",
+    "lat": 25.07,
+    "lng": 48.15,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-9",
+    "name": "Khursaniyah Oil Field",
+    "lat": 27.05,
+    "lng": 49.25,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-10",
+    "name": "Zuluf Oil Field",
+    "lat": 28.42,
+    "lng": 49.18,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-11",
+    "name": "Marjan Oil Field",
+    "lat": 28.45,
+    "lng": 49.68,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-12",
+    "name": "Abu Safah Oil Field",
+    "lat": 26.94,
+    "lng": 50.48,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-13",
+    "name": "Harmaliyah Oil Field",
+    "lat": 24.83,
+    "lng": 49.15,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-14",
+    "name": "Nuayyim Oil Field",
+    "lat": 25.65,
+    "lng": 48.45,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-15",
+    "name": "Burgan Oil Field",
+    "lat": 29.06,
+    "lng": 47.97,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-16",
+    "name": "Raudhatain Oil Field",
+    "lat": 29.9,
+    "lng": 47.72,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-17",
+    "name": "Sabriyah Oil Field",
+    "lat": 29.78,
+    "lng": 47.9,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-18",
+    "name": "Minagish Oil Field",
+    "lat": 29.04,
+    "lng": 47.54,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-19",
+    "name": "Umm Gudair Oil Field",
+    "lat": 28.85,
+    "lng": 47.72,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-20",
+    "name": "Wafra Oil Field",
+    "lat": 28.6,
+    "lng": 47.93,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-21",
+    "name": "Rumaila Oil Field",
+    "lat": 30.16,
+    "lng": 47.4,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-22",
+    "name": "West Qurna-1",
+    "lat": 31.03,
+    "lng": 47.42,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-23",
+    "name": "West Qurna-2",
+    "lat": 31.18,
+    "lng": 47.38,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-24",
+    "name": "Majnoon Oil Field",
+    "lat": 31.32,
+    "lng": 47.52,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-25",
+    "name": "Zubair Oil Field",
+    "lat": 30.39,
+    "lng": 47.73,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-26",
+    "name": "Halfaya Oil Field",
+    "lat": 32.12,
+    "lng": 47.28,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-27",
+    "name": "Kirkuk Oil Field",
+    "lat": 35.47,
+    "lng": 44.4,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-28",
+    "name": "Bai Hassan Oil Field",
+    "lat": 35.62,
+    "lng": 44.05,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-29",
+    "name": "Nahr Umr Oil Field",
+    "lat": 30.9,
+    "lng": 47.4,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-30",
+    "name": "Ahvaz Oil Field",
+    "lat": 31.32,
+    "lng": 48.67,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-31",
+    "name": "Marun Oil Field",
+    "lat": 30.86,
+    "lng": 49.15,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-32",
+    "name": "Gachsaran Oil Field",
+    "lat": 30.35,
+    "lng": 50.8,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-33",
+    "name": "Aghajari Oil Field",
+    "lat": 30.7,
+    "lng": 49.83,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-34",
+    "name": "Bibi Hakimeh Oil Field",
+    "lat": 30.15,
+    "lng": 50.4,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-35",
+    "name": "South Pars Gas Field",
+    "lat": 26.8,
+    "lng": 52.15,
+    "commodity": "Natural Gas",
+    "ticker": "NG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-36",
+    "name": "North Dome Gas Field",
+    "lat": 26.55,
+    "lng": 51.55,
+    "commodity": "Natural Gas",
+    "ticker": "NG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-37",
+    "name": "Dukhan Oil Field",
+    "lat": 25.42,
+    "lng": 50.78,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-38",
+    "name": "Al Shaheen Oil Field",
+    "lat": 26.55,
+    "lng": 51.95,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-39",
+    "name": "Upper Zakum Oil Field",
+    "lat": 24.98,
+    "lng": 53.68,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-40",
+    "name": "Lower Zakum Oil Field",
+    "lat": 24.82,
+    "lng": 53.62,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-41",
+    "name": "Umm Shaif Oil Field",
+    "lat": 25.18,
+    "lng": 53.28,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-42",
+    "name": "Bu Hasa Oil Field",
+    "lat": 23.5,
+    "lng": 53.2,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-43",
+    "name": "Bab Oil Field",
+    "lat": 23.85,
+    "lng": 53.7,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-44",
+    "name": "Asab Oil Field",
+    "lat": 23.3,
+    "lng": 53.95,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-45",
+    "name": "Shah Oil Field",
+    "lat": 22.9,
+    "lng": 53.85,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-46",
+    "name": "Johan Sverdrup",
+    "lat": 58.8,
+    "lng": 2.55,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-47",
+    "name": "Ekofisk",
+    "lat": 56.55,
+    "lng": 3.21,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-48",
+    "name": "Troll Gas Field",
+    "lat": 60.65,
+    "lng": 3.72,
+    "commodity": "Natural Gas",
+    "ticker": "NG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-49",
+    "name": "Oseberg",
+    "lat": 60.49,
+    "lng": 2.83,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-50",
+    "name": "Gullfaks",
+    "lat": 61.18,
+    "lng": 2.19,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-51",
+    "name": "Statfjord",
+    "lat": 61.25,
+    "lng": 1.85,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-52",
+    "name": "Snorre",
+    "lat": 61.45,
+    "lng": 2.1,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-53",
+    "name": "Asgard",
+    "lat": 65.07,
+    "lng": 6.95,
+    "commodity": "Natural Gas",
+    "ticker": "NG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-54",
+    "name": "Heidrun",
+    "lat": 65.32,
+    "lng": 7.31,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-55",
+    "name": "Norne",
+    "lat": 66.03,
+    "lng": 8.08,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-56",
+    "name": "Snohvit",
+    "lat": 71.6,
+    "lng": 21.0,
+    "commodity": "Natural Gas",
+    "ticker": "NG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-57",
+    "name": "Goliat",
+    "lat": 71.3,
+    "lng": 22.3,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-58",
+    "name": "Johan Castberg",
+    "lat": 72.5,
+    "lng": 20.3,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-59",
+    "name": "Ormen Lange",
+    "lat": 63.55,
+    "lng": 5.4,
+    "commodity": "Natural Gas",
+    "ticker": "NG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-60",
+    "name": "Gina Krog",
+    "lat": 58.57,
+    "lng": 1.7,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-61",
+    "name": "Edvard Grieg",
+    "lat": 58.84,
+    "lng": 2.25,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-62",
+    "name": "Ivar Aasen",
+    "lat": 58.92,
+    "lng": 2.18,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-63",
+    "name": "Brent Field",
+    "lat": 61.08,
+    "lng": 1.72,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-64",
+    "name": "Forties",
+    "lat": 57.73,
+    "lng": 0.9,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-65",
+    "name": "Buzzard",
+    "lat": 57.8,
+    "lng": 0.96,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-66",
+    "name": "Clair",
+    "lat": 60.75,
+    "lng": -2.5,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-67",
+    "name": "Schiehallion",
+    "lat": 60.35,
+    "lng": -4.1,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-68",
+    "name": "Kraken",
+    "lat": 59.88,
+    "lng": 1.25,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-69",
+    "name": "Catcher",
+    "lat": 57.0,
+    "lng": 1.0,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-70",
+    "name": "Elgin-Franklin",
+    "lat": 57.0,
+    "lng": 2.0,
+    "commodity": "Natural Gas",
+    "ticker": "NG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-71",
+    "name": "Culzean",
+    "lat": 57.18,
+    "lng": 1.9,
+    "commodity": "Natural Gas",
+    "ticker": "NG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-72",
+    "name": "Mariner",
+    "lat": 59.3,
+    "lng": 1.65,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-73",
+    "name": "Rosebank",
+    "lat": 61.05,
+    "lng": -3.85,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-74",
+    "name": "Pierce",
+    "lat": 57.15,
+    "lng": 2.28,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-75",
+    "name": "Cygnus",
+    "lat": 54.58,
+    "lng": 2.25,
+    "commodity": "Natural Gas",
+    "ticker": "NG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-76",
+    "name": "Leman",
+    "lat": 53.08,
+    "lng": 2.2,
+    "commodity": "Natural Gas",
+    "ticker": "NG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-77",
+    "name": "Clipper",
+    "lat": 53.46,
+    "lng": 1.73,
+    "commodity": "Natural Gas",
+    "ticker": "NG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-78",
+    "name": "Breagh",
+    "lat": 54.4,
+    "lng": 0.55,
+    "commodity": "Natural Gas",
+    "ticker": "NG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-79",
+    "name": "Aasta Hansteen",
+    "lat": 67.05,
+    "lng": 7.05,
+    "commodity": "Natural Gas",
+    "ticker": "NG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-80",
+    "name": "Martin Linge",
+    "lat": 60.5,
+    "lng": 2.0,
+    "commodity": "Natural Gas",
+    "ticker": "NG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-81",
+    "name": "Prudhoe Bay Oil Field",
+    "lat": 70.255,
+    "lng": -148.337,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-82",
+    "name": "Kuparuk River Oil Field",
+    "lat": 70.33,
+    "lng": -149.9,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-83",
+    "name": "Alpine Oil Field",
+    "lat": 70.345,
+    "lng": -150.92,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-84",
+    "name": "Point Thomson",
+    "lat": 70.172,
+    "lng": -146.256,
+    "commodity": "Natural Gas",
+    "ticker": "NG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-85",
+    "name": "Wasson Oil Field",
+    "lat": 32.83,
+    "lng": -102.55,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-86",
+    "name": "Yates Oil Field",
+    "lat": 30.91,
+    "lng": -101.9,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-87",
+    "name": "Slaughter Oil Field",
+    "lat": 33.45,
+    "lng": -102.6,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-88",
+    "name": "Goldsmith Oil Field",
+    "lat": 31.98,
+    "lng": -102.55,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-89",
+    "name": "Seminole Oil Field",
+    "lat": 32.72,
+    "lng": -102.65,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-90",
+    "name": "Eagle Ford Karnes",
+    "lat": 28.88,
+    "lng": -97.86,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-91",
+    "name": "Parshall Field",
+    "lat": 48.05,
+    "lng": -102.15,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-92",
+    "name": "Elm Coulee Field",
+    "lat": 47.95,
+    "lng": -104.1,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-93",
+    "name": "Sanish Field",
+    "lat": 48.15,
+    "lng": -102.55,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-94",
+    "name": "Wattenberg Field",
+    "lat": 40.2,
+    "lng": -104.8,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-95",
+    "name": "Jonah Field",
+    "lat": 42.53,
+    "lng": -109.68,
+    "commodity": "Natural Gas",
+    "ticker": "NG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-96",
+    "name": "Carthage Gas Field",
+    "lat": 32.15,
+    "lng": -94.34,
+    "commodity": "Natural Gas",
+    "ticker": "NG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-97",
+    "name": "Springville Marcellus",
+    "lat": 41.69,
+    "lng": -75.92,
+    "commodity": "Natural Gas",
+    "ticker": "NG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-98",
+    "name": "Cantarell",
+    "lat": 19.4,
+    "lng": -92.2,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-99",
+    "name": "Ku-Maloob-Zaap",
+    "lat": 19.45,
+    "lng": -92.0,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-100",
+    "name": "Zama Oil Field",
+    "lat": 18.8573,
+    "lng": -93.5354,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-101",
+    "name": "Hibernia",
+    "lat": 46.75,
+    "lng": -48.78,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-102",
+    "name": "Hebron",
+    "lat": 46.54,
+    "lng": -48.5,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-103",
+    "name": "Terra Nova",
+    "lat": 46.47,
+    "lng": -48.48,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-104",
+    "name": "White Rose",
+    "lat": 46.78,
+    "lng": -48.05,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-105",
+    "name": "Fort Hills",
+    "lat": 57.4,
+    "lng": -111.6,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-106",
+    "name": "Kearl Oil Sands",
+    "lat": 57.28,
+    "lng": -111.2,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-107",
+    "name": "Cold Lake",
+    "lat": 54.46,
+    "lng": -110.18,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-108",
+    "name": "Firebag",
+    "lat": 57.23,
+    "lng": -110.9,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-109",
+    "name": "Christina Lake",
+    "lat": 55.58,
+    "lng": -110.85,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-110",
+    "name": "Dawson Creek Montney",
+    "lat": 55.76,
+    "lng": -120.24,
+    "commodity": "Natural Gas",
+    "ticker": "NG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-111",
+    "name": "Kaybob Duvernay",
+    "lat": 54.5,
+    "lng": -117.1,
+    "commodity": "Natural Gas",
+    "ticker": "NG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-112",
+    "name": "Lula Oil Field",
+    "lat": -25.5,
+    "lng": -42.5,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-113",
+    "name": "Buzios Oil Field",
+    "lat": -24.6,
+    "lng": -42.5,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-114",
+    "name": "Mero Oil Field",
+    "lat": -24.4,
+    "lng": -42.7,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-115",
+    "name": "Sapinhoa Oil Field",
+    "lat": -25.05,
+    "lng": -43.3,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-116",
+    "name": "Jubarte Oil Field",
+    "lat": -21.3,
+    "lng": -40.0,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-117",
+    "name": "Peregrino Oil Field",
+    "lat": -23.3,
+    "lng": -41.2,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-118",
+    "name": "Liza Oil Field",
+    "lat": 8.01,
+    "lng": -56.85,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-119",
+    "name": "Payara Oil Field",
+    "lat": 7.97,
+    "lng": -56.92,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-120",
+    "name": "Yellowtail Oil Field",
+    "lat": 8.06,
+    "lng": -56.78,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-121",
+    "name": "Loma Campana",
+    "lat": -38.32,
+    "lng": -69.1,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-122",
+    "name": "Fortin de Piedra",
+    "lat": -38.4,
+    "lng": -68.85,
+    "commodity": "Natural Gas",
+    "ticker": "NG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-123",
+    "name": "Cerro Negro",
+    "lat": 8.55,
+    "lng": -64.25,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-124",
+    "name": "Boscan Oil Field",
+    "lat": 10.4,
+    "lng": -72.05,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-125",
+    "name": "Rubiales Oil Field",
+    "lat": 3.87,
+    "lng": -71.32,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-126",
+    "name": "Jubilee Oil Field",
+    "lat": 4.5,
+    "lng": -2.9,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-127",
+    "name": "TEN Oil Fields",
+    "lat": 4.55,
+    "lng": -3.05,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-128",
+    "name": "Bonga Oil Field",
+    "lat": 4.55,
+    "lng": 4.6,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-129",
+    "name": "Agbami Oil Field",
+    "lat": 3.5,
+    "lng": 5.5,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-130",
+    "name": "Akpo Oil Field",
+    "lat": 3.1,
+    "lng": 6.7,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-131",
+    "name": "Egina Oil Field",
+    "lat": 3.05,
+    "lng": 6.65,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-132",
+    "name": "Hassi Messaoud",
+    "lat": 31.7,
+    "lng": 6.07,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-133",
+    "name": "Hassi R'Mel",
+    "lat": 32.95,
+    "lng": 3.27,
+    "commodity": "Natural Gas",
+    "ticker": "NG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-134",
+    "name": "El Sharara Oil Field",
+    "lat": 26.6,
+    "lng": 12.2,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-135",
+    "name": "Waha Oil Field",
+    "lat": 28.9,
+    "lng": 19.8,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-136",
+    "name": "Sarir Oil Field",
+    "lat": 27.6,
+    "lng": 22.4,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-137",
+    "name": "Girassol",
+    "lat": -7.65,
+    "lng": 11.7,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-138",
+    "name": "Dalia Oil Field",
+    "lat": -7.7,
+    "lng": 11.55,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-139",
+    "name": "Pazflor",
+    "lat": -7.6,
+    "lng": 12.1,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-140",
+    "name": "Kaombo",
+    "lat": -7.85,
+    "lng": 11.2,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-141",
+    "name": "Tengiz Oil Field",
+    "lat": 46.15,
+    "lng": 53.38,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-142",
+    "name": "Kashagan Oil Field",
+    "lat": 46.17,
+    "lng": 51.58,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-143",
+    "name": "Karachaganak",
+    "lat": 51.35,
+    "lng": 52.5,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-144",
+    "name": "Samotlor Oil Field",
+    "lat": 61.0,
+    "lng": 76.7,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-145",
+    "name": "Priobskoye Oil Field",
+    "lat": 61.2,
+    "lng": 70.5,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-146",
+    "name": "Vankor Oil Field",
+    "lat": 67.8,
+    "lng": 83.5,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-147",
+    "name": "Urengoy Gas Field",
+    "lat": 66.0,
+    "lng": 76.6,
+    "commodity": "Natural Gas",
+    "ticker": "NG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-148",
+    "name": "Daqing Oil Field",
+    "lat": 46.58,
+    "lng": 125.0,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-149",
+    "name": "Mumbai High",
+    "lat": 19.4,
+    "lng": 71.35,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-150",
+    "name": "Gorgon Gas Field",
+    "lat": -20.6,
+    "lng": 114.9,
+    "commodity": "Natural Gas",
+    "ticker": "NG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-151",
+    "name": "Ras Laffan LNG",
+    "lat": 25.91,
+    "lng": 51.55,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-152",
+    "name": "QatarEnergy North Field LNG",
+    "lat": 25.95,
+    "lng": 51.62,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-153",
+    "name": "Sabine Pass LNG",
+    "lat": 29.74,
+    "lng": -93.87,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-154",
+    "name": "Cameron LNG",
+    "lat": 29.774,
+    "lng": -93.328,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-155",
+    "name": "Corpus Christi LNG",
+    "lat": 27.9135,
+    "lng": -97.2866,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-156",
+    "name": "Freeport LNG",
+    "lat": 28.93,
+    "lng": -95.31,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-157",
+    "name": "Cove Point LNG",
+    "lat": 38.4,
+    "lng": -76.41,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-158",
+    "name": "Elba Island LNG",
+    "lat": 32.09,
+    "lng": -80.99,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-159",
+    "name": "Calcasieu Pass LNG",
+    "lat": 29.7729,
+    "lng": -93.3343,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-160",
+    "name": "Plaquemines LNG",
+    "lat": 29.6004,
+    "lng": -89.8864,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-161",
+    "name": "Golden Pass LNG",
+    "lat": 29.76,
+    "lng": -93.92,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-162",
+    "name": "LNG Canada Kitimat",
+    "lat": 53.99,
+    "lng": -128.69,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-163",
+    "name": "Melkoya LNG",
+    "lat": 70.68,
+    "lng": 23.59,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-164",
+    "name": "Yamal LNG Sabetta",
+    "lat": 71.27,
+    "lng": 72.07,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-165",
+    "name": "Prigorodnoye LNG",
+    "lat": 46.63,
+    "lng": 142.91,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-166",
+    "name": "Bintulu MLNG",
+    "lat": 3.27,
+    "lng": 113.07,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-167",
+    "name": "Tangguh LNG",
+    "lat": -2.44,
+    "lng": 133.14,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-168",
+    "name": "Darwin LNG",
+    "lat": -12.5,
+    "lng": 130.86,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-169",
+    "name": "QCLNG Gladstone",
+    "lat": -23.766,
+    "lng": 151.198,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-170",
+    "name": "APLNG Gladstone",
+    "lat": -23.759,
+    "lng": 151.215,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-171",
+    "name": "GLNG Gladstone",
+    "lat": -23.771,
+    "lng": 151.23,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-172",
+    "name": "Wheatstone LNG",
+    "lat": -21.68,
+    "lng": 115.0,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-173",
+    "name": "Gorgon LNG",
+    "lat": -20.79,
+    "lng": 115.47,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-174",
+    "name": "Karratha Gas Plant",
+    "lat": -20.58,
+    "lng": 116.77,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-175",
+    "name": "Pluto LNG",
+    "lat": -20.6,
+    "lng": 116.75,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-176",
+    "name": "Ichthys LNG Darwin",
+    "lat": -12.48,
+    "lng": 130.91,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-177",
+    "name": "Prelude FLNG",
+    "lat": -13.78,
+    "lng": 123.3,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-178",
+    "name": "Nigeria LNG Bonny",
+    "lat": 4.42,
+    "lng": 7.16,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-179",
+    "name": "Angola LNG Soyo",
+    "lat": -6.12,
+    "lng": 12.37,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-180",
+    "name": "Damietta LNG",
+    "lat": 31.46,
+    "lng": 31.73,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-181",
+    "name": "Idku LNG",
+    "lat": 31.35,
+    "lng": 30.32,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-182",
+    "name": "Arzew GL1Z",
+    "lat": 35.82,
+    "lng": -0.27,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-183",
+    "name": "Skikda LNG",
+    "lat": 36.88,
+    "lng": 6.94,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-184",
+    "name": "EG LNG Bioko",
+    "lat": 3.76,
+    "lng": 8.7,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-185",
+    "name": "Peru LNG Melchorita",
+    "lat": -13.26,
+    "lng": -76.28,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-186",
+    "name": "Atlantic LNG Point Fortin",
+    "lat": 10.18,
+    "lng": -61.7,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-187",
+    "name": "Brunei LNG Lumut",
+    "lat": 4.67,
+    "lng": 114.45,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-188",
+    "name": "Qalhat Oman LNG",
+    "lat": 22.66,
+    "lng": 59.41,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-189",
+    "name": "Balhaf Yemen LNG",
+    "lat": 13.99,
+    "lng": 48.18,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-190",
+    "name": "Das Island LNG",
+    "lat": 25.15,
+    "lng": 52.87,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-191",
+    "name": "PNG LNG Caution Bay",
+    "lat": -9.34,
+    "lng": 147.02,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-192",
+    "name": "Donggi-Senoro LNG",
+    "lat": -1.25,
+    "lng": 122.45,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-193",
+    "name": "Coral Sul FLNG",
+    "lat": -10.95,
+    "lng": 40.85,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-194",
+    "name": "Mozambique LNG Afungi",
+    "lat": -10.82,
+    "lng": 40.55,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-195",
+    "name": "Greater Tortue Ahmeyim",
+    "lat": 16.05,
+    "lng": -17.35,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-196",
+    "name": "Energia Costa Azul",
+    "lat": 31.99,
+    "lng": -116.87,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-197",
+    "name": "Rio Grande LNG",
+    "lat": 25.97,
+    "lng": -97.35,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-198",
+    "name": "Port Arthur LNG",
+    "lat": 29.87,
+    "lng": -93.94,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-199",
+    "name": "Marsa el Brega LNG",
+    "lat": 30.41,
+    "lng": 19.57,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-200",
+    "name": "Zeebrugge LNG",
+    "lat": 51.35,
+    "lng": 3.21,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-201",
+    "name": "Gate Rotterdam LNG",
+    "lat": 51.96,
+    "lng": 4.09,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-202",
+    "name": "South Hook LNG",
+    "lat": 51.7,
+    "lng": -5.09,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-203",
+    "name": "Dragon LNG",
+    "lat": 51.71,
+    "lng": -5.04,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-204",
+    "name": "Isle of Grain LNG",
+    "lat": 51.45,
+    "lng": 0.71,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-205",
+    "name": "Montoir LNG",
+    "lat": 47.3,
+    "lng": -2.15,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-206",
+    "name": "Fos Cavaou LNG",
+    "lat": 43.42,
+    "lng": 4.89,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-207",
+    "name": "Barcelona LNG",
+    "lat": 41.34,
+    "lng": 2.16,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-208",
+    "name": "Sines LNG",
+    "lat": 37.95,
+    "lng": -8.86,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-209",
+    "name": "Revithoussa LNG",
+    "lat": 37.96,
+    "lng": 23.4,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-210",
+    "name": "Swinoujscie LNG",
+    "lat": 53.91,
+    "lng": 14.29,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-211",
+    "name": "Klaipeda LNG",
+    "lat": 55.72,
+    "lng": 21.13,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-212",
+    "name": "Wilhelmshaven LNG",
+    "lat": 53.55,
+    "lng": 8.15,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-213",
+    "name": "Dahej LNG",
+    "lat": 21.68,
+    "lng": 72.53,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-214",
+    "name": "Hazira LNG",
+    "lat": 21.1,
+    "lng": 72.63,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-215",
+    "name": "Kochi LNG",
+    "lat": 9.98,
+    "lng": 76.23,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-216",
+    "name": "Futtsu LNG",
+    "lat": 35.34,
+    "lng": 139.83,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-217",
+    "name": "Sodegaura LNG",
+    "lat": 35.47,
+    "lng": 140.0,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-218",
+    "name": "Pyeongtaek LNG",
+    "lat": 36.97,
+    "lng": 126.82,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-219",
+    "name": "Incheon LNG",
+    "lat": 37.39,
+    "lng": 126.61,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-220",
+    "name": "Guangdong Dapeng LNG",
+    "lat": 22.59,
+    "lng": 114.48,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "LNG Terminal"
+  },
+  {
+    "id": "node-221",
+    "name": "Escondida",
+    "lat": -24.27,
+    "lng": -69.07,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-222",
+    "name": "Chuquicamata",
+    "lat": -22.289,
+    "lng": -68.902,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-223",
+    "name": "Collahuasi",
+    "lat": -20.978,
+    "lng": -68.7,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-224",
+    "name": "El Teniente",
+    "lat": -34.087,
+    "lng": -70.348,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-225",
+    "name": "Los Pelambres",
+    "lat": -31.717,
+    "lng": -70.49,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-226",
+    "name": "Antamina",
+    "lat": -9.537,
+    "lng": -77.056,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-227",
+    "name": "Cerro Verde",
+    "lat": -16.533,
+    "lng": -71.596,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-228",
+    "name": "Las Bambas",
+    "lat": -14.1,
+    "lng": -72.32,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-229",
+    "name": "Toquepala",
+    "lat": -17.247,
+    "lng": -70.613,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-230",
+    "name": "Grasberg",
+    "lat": -4.06,
+    "lng": 137.117,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-231",
+    "name": "Batu Hijau",
+    "lat": -8.967,
+    "lng": 116.867,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-232",
+    "name": "Oyu Tolgoi",
+    "lat": 43.008,
+    "lng": 106.851,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-233",
+    "name": "Erdenet",
+    "lat": 49.027,
+    "lng": 104.083,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-234",
+    "name": "Morenci",
+    "lat": 33.093,
+    "lng": -109.366,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-235",
+    "name": "Bingham Canyon",
+    "lat": 40.521,
+    "lng": -112.149,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-236",
+    "name": "Buenavista del Cobre",
+    "lat": 30.98,
+    "lng": -110.3,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-237",
+    "name": "La Caridad",
+    "lat": 30.32,
+    "lng": -109.56,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-238",
+    "name": "Kansanshi",
+    "lat": -12.095,
+    "lng": 26.427,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-239",
+    "name": "Sentinel Mine",
+    "lat": -12.233,
+    "lng": 25.317,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-240",
+    "name": "Lumwana",
+    "lat": -12.233,
+    "lng": 25.82,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-241",
+    "name": "Konkola",
+    "lat": -12.35,
+    "lng": 27.78,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-242",
+    "name": "Tenke Fungurume",
+    "lat": -10.58,
+    "lng": 26.13,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-243",
+    "name": "Kamoa-Kakula",
+    "lat": -10.883,
+    "lng": 25.267,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-244",
+    "name": "Kamoto",
+    "lat": -10.717,
+    "lng": 25.383,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-245",
+    "name": "Olympic Dam",
+    "lat": -30.444,
+    "lng": 136.872,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-246",
+    "name": "Mount Isa",
+    "lat": -20.726,
+    "lng": 139.489,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-247",
+    "name": "Cadia",
+    "lat": -33.467,
+    "lng": 148.858,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-248",
+    "name": "Ok Tedi",
+    "lat": -5.195,
+    "lng": 141.14,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-249",
+    "name": "Cobre Panama",
+    "lat": 8.84,
+    "lng": -80.66,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-250",
+    "name": "Salobo",
+    "lat": -5.79,
+    "lng": -50.53,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-251",
+    "name": "Aitik",
+    "lat": 67.07,
+    "lng": 20.96,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-252",
+    "name": "Rudna",
+    "lat": 51.47,
+    "lng": 16.09,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-253",
+    "name": "Udokan",
+    "lat": 56.578,
+    "lng": 118.48,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-254",
+    "name": "Oktyabrsky",
+    "lat": 69.35,
+    "lng": 88.15,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-255",
+    "name": "Aktogay",
+    "lat": 46.97,
+    "lng": 79.67,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-256",
+    "name": "Quebrada Blanca",
+    "lat": -21.0,
+    "lng": -68.8,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-257",
+    "name": "Spence",
+    "lat": -22.79,
+    "lng": -69.27,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-258",
+    "name": "Sierra Gorda",
+    "lat": -22.85,
+    "lng": -69.32,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-259",
+    "name": "Cuajone",
+    "lat": -17.04,
+    "lng": -70.71,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-260",
+    "name": "Caserones",
+    "lat": -28.14,
+    "lng": -69.53,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-261",
+    "name": "Salar de Atacama SQM",
+    "lat": -23.5,
+    "lng": -68.25,
+    "commodity": "Lithium",
+    "ticker": "LIT",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-262",
+    "name": "Salar de Atacama Albemarle",
+    "lat": -23.65,
+    "lng": -68.4,
+    "commodity": "Lithium",
+    "ticker": "LIT",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-263",
+    "name": "Salar de Olaroz",
+    "lat": -23.48,
+    "lng": -66.7,
+    "commodity": "Lithium",
+    "ticker": "LIT",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-264",
+    "name": "Cauchari-Olaroz",
+    "lat": -23.68,
+    "lng": -66.77,
+    "commodity": "Lithium",
+    "ticker": "LIT",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-265",
+    "name": "Salar del Hombre Muerto",
+    "lat": -25.4,
+    "lng": -67.07,
+    "commodity": "Lithium",
+    "ticker": "LIT",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-266",
+    "name": "Salar de Rincon",
+    "lat": -24.08,
+    "lng": -67.1,
+    "commodity": "Lithium",
+    "ticker": "LIT",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-267",
+    "name": "Sal de Vida",
+    "lat": -25.25,
+    "lng": -66.95,
+    "commodity": "Lithium",
+    "ticker": "LIT",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-268",
+    "name": "Centenario-Ratones",
+    "lat": -24.1,
+    "lng": -66.75,
+    "commodity": "Lithium",
+    "ticker": "LIT",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-269",
+    "name": "Pastos Grandes",
+    "lat": -24.6,
+    "lng": -66.85,
+    "commodity": "Lithium",
+    "ticker": "LIT",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-270",
+    "name": "Greenbushes",
+    "lat": -33.866,
+    "lng": 116.0648,
+    "commodity": "Lithium",
+    "ticker": "LIT",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-271",
+    "name": "Pilgangoora",
+    "lat": -21.0723,
+    "lng": 118.8953,
+    "commodity": "Lithium",
+    "ticker": "LIT",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-272",
+    "name": "Wodgina",
+    "lat": -21.1746,
+    "lng": 118.6764,
+    "commodity": "Lithium",
+    "ticker": "LIT",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-273",
+    "name": "Mount Marion",
+    "lat": -31.0738,
+    "lng": 121.4611,
+    "commodity": "Lithium",
+    "ticker": "LIT",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-274",
+    "name": "Mount Cattlin",
+    "lat": -33.565,
+    "lng": 120.04,
+    "commodity": "Lithium",
+    "ticker": "LIT",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-275",
+    "name": "Kathleen Valley",
+    "lat": -27.39,
+    "lng": 120.55,
+    "commodity": "Lithium",
+    "ticker": "LIT",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-276",
+    "name": "Finniss",
+    "lat": -12.55,
+    "lng": 130.6,
+    "commodity": "Lithium",
+    "ticker": "LIT",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-277",
+    "name": "Manono",
+    "lat": -7.3,
+    "lng": 27.42,
+    "commodity": "Lithium",
+    "ticker": "LIT",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-278",
+    "name": "Goulamina",
+    "lat": 11.35,
+    "lng": -7.55,
+    "commodity": "Lithium",
+    "ticker": "LIT",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-279",
+    "name": "Bikita",
+    "lat": -20.05,
+    "lng": 31.63,
+    "commodity": "Lithium",
+    "ticker": "LIT",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-280",
+    "name": "Arcadia Lithium",
+    "lat": -17.8,
+    "lng": 31.3,
+    "commodity": "Lithium",
+    "ticker": "LIT",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-281",
+    "name": "Thacker Pass",
+    "lat": 41.708,
+    "lng": -118.055,
+    "commodity": "Lithium",
+    "ticker": "LIT",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-282",
+    "name": "Silver Peak",
+    "lat": 37.752,
+    "lng": -117.635,
+    "commodity": "Lithium",
+    "ticker": "LIT",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-283",
+    "name": "Kings Mountain",
+    "lat": 35.245,
+    "lng": -81.341,
+    "commodity": "Lithium",
+    "ticker": "LIT",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-284",
+    "name": "Whabouchi",
+    "lat": 51.68,
+    "lng": -75.85,
+    "commodity": "Lithium",
+    "ticker": "LIT",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-285",
+    "name": "James Bay Lithium",
+    "lat": 52.22,
+    "lng": -77.07,
+    "commodity": "Lithium",
+    "ticker": "LIT",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-286",
+    "name": "Cinovec",
+    "lat": 50.73,
+    "lng": 13.77,
+    "commodity": "Lithium",
+    "ticker": "LIT",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-287",
+    "name": "Mina do Barroso",
+    "lat": 41.7,
+    "lng": -7.75,
+    "commodity": "Lithium",
+    "ticker": "LIT",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-288",
+    "name": "Salar de Uyuni",
+    "lat": -20.28,
+    "lng": -67.4,
+    "commodity": "Lithium",
+    "ticker": "LIT",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-289",
+    "name": "Tres Quebradas",
+    "lat": -27.5,
+    "lng": -68.4,
+    "commodity": "Lithium",
+    "ticker": "LIT",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-290",
+    "name": "Sonora Lithium",
+    "lat": 29.8,
+    "lng": -109.15,
+    "commodity": "Lithium",
+    "ticker": "LIT",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-291",
+    "name": "Muruntau",
+    "lat": 41.5,
+    "lng": 64.57,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-292",
+    "name": "Olimpiada",
+    "lat": 59.87,
+    "lng": 92.92,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-293",
+    "name": "Pueblo Viejo",
+    "lat": 18.94,
+    "lng": -70.16,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-294",
+    "name": "Cortez",
+    "lat": 40.24,
+    "lng": -116.71,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-295",
+    "name": "Carlin",
+    "lat": 40.45,
+    "lng": -116.32,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-296",
+    "name": "Goldstrike",
+    "lat": 40.96,
+    "lng": -116.36,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-297",
+    "name": "Round Mountain",
+    "lat": 38.71,
+    "lng": -117.07,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-298",
+    "name": "Fort Knox",
+    "lat": 65.02,
+    "lng": -147.36,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-299",
+    "name": "Canadian Malartic",
+    "lat": 48.135,
+    "lng": -78.125,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-300",
+    "name": "Detour Lake",
+    "lat": 50.02,
+    "lng": -79.68,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-301",
+    "name": "Meliadine",
+    "lat": 63.03,
+    "lng": -92.2,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-302",
+    "name": "Meadowbank",
+    "lat": 65.01,
+    "lng": -96.07,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-303",
+    "name": "Super Pit",
+    "lat": -30.775,
+    "lng": 121.5,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-304",
+    "name": "Boddington",
+    "lat": -32.75,
+    "lng": 116.36,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-305",
+    "name": "Fosterville",
+    "lat": -36.72,
+    "lng": 144.5,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-306",
+    "name": "Gruyere",
+    "lat": -27.99,
+    "lng": 123.85,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-307",
+    "name": "Tropicana",
+    "lat": -29.22,
+    "lng": 124.54,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-308",
+    "name": "Lihir",
+    "lat": -3.125,
+    "lng": 152.63,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-309",
+    "name": "Porgera",
+    "lat": -5.47,
+    "lng": 143.14,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-310",
+    "name": "Geita",
+    "lat": -2.87,
+    "lng": 32.18,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-311",
+    "name": "North Mara",
+    "lat": -1.45,
+    "lng": 34.47,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-312",
+    "name": "Kibali",
+    "lat": 3.11,
+    "lng": 29.59,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-313",
+    "name": "Loulo",
+    "lat": 13.08,
+    "lng": -11.4,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-314",
+    "name": "Fekola",
+    "lat": 12.54,
+    "lng": -11.38,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-315",
+    "name": "Ahafo",
+    "lat": 7.06,
+    "lng": -2.35,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-316",
+    "name": "Tarkwa",
+    "lat": 5.3,
+    "lng": -1.99,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-317",
+    "name": "Obuasi",
+    "lat": 6.2,
+    "lng": -1.67,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-318",
+    "name": "Sukari",
+    "lat": 24.95,
+    "lng": 34.72,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-319",
+    "name": "South Deep",
+    "lat": -26.42,
+    "lng": 27.67,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-320",
+    "name": "Mponeng",
+    "lat": -26.43,
+    "lng": 27.43,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-321",
+    "name": "Yanacocha",
+    "lat": -6.985,
+    "lng": -78.51,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-322",
+    "name": "Fruta del Norte",
+    "lat": -3.9,
+    "lng": -78.55,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-323",
+    "name": "Buritica",
+    "lat": 6.72,
+    "lng": -75.91,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-324",
+    "name": "Paracatu",
+    "lat": -17.2,
+    "lng": -46.87,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-325",
+    "name": "Kumtor",
+    "lat": 41.86,
+    "lng": 78.19,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-326",
+    "name": "Penasquito",
+    "lat": 24.15,
+    "lng": -101.68,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-327",
+    "name": "Brucejack",
+    "lat": 56.47,
+    "lng": -130.19,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-328",
+    "name": "Macraes",
+    "lat": -45.38,
+    "lng": 170.45,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-329",
+    "name": "Eleonore",
+    "lat": 52.7,
+    "lng": -76.08,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-330",
+    "name": "Red Lake",
+    "lat": 51.05,
+    "lng": -93.83,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-331",
+    "name": "Pogo",
+    "lat": 64.45,
+    "lng": -144.9,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-332",
+    "name": "St Ives",
+    "lat": -31.27,
+    "lng": 121.68,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-333",
+    "name": "Telfer",
+    "lat": -21.71,
+    "lng": 122.23,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-334",
+    "name": "Natalka",
+    "lat": 61.63,
+    "lng": 147.82,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-335",
+    "name": "Kupol",
+    "lat": 66.83,
+    "lng": 169.55,
+    "commodity": "Gold",
+    "ticker": "GC=F",
+    "type": "Extraction Site"
+  },
+  {
+    "id": "node-336",
+    "name": "Port of South Louisiana",
+    "lat": 30.055,
+    "lng": -90.57,
+    "commodity": "Soybeans",
+    "ticker": "ZS=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-337",
+    "name": "Port of New Orleans",
+    "lat": 29.935,
+    "lng": -90.06,
+    "commodity": "Corn",
+    "ticker": "ZC=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-338",
+    "name": "Houston Ship Channel Grain",
+    "lat": 29.735,
+    "lng": -95.21,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-339",
+    "name": "Duluth-Superior",
+    "lat": 46.76,
+    "lng": -92.1,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-340",
+    "name": "Port of Portland Grain",
+    "lat": 45.63,
+    "lng": -122.75,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-341",
+    "name": "Kalama Export",
+    "lat": 46.008,
+    "lng": -122.845,
+    "commodity": "Soybeans",
+    "ticker": "ZS=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-342",
+    "name": "Seattle Pier 86",
+    "lat": 47.628,
+    "lng": -122.375,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-343",
+    "name": "Corpus Christi Elevator",
+    "lat": 27.813,
+    "lng": -97.395,
+    "commodity": "Corn",
+    "ticker": "ZC=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-344",
+    "name": "Chicago Calumet",
+    "lat": 41.72,
+    "lng": -87.53,
+    "commodity": "Corn",
+    "ticker": "ZC=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-345",
+    "name": "Kansas City Grain",
+    "lat": 39.1,
+    "lng": -94.6,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-346",
+    "name": "Minneapolis Grain",
+    "lat": 44.98,
+    "lng": -93.265,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-347",
+    "name": "Toledo Grain",
+    "lat": 41.65,
+    "lng": -83.54,
+    "commodity": "Corn",
+    "ticker": "ZC=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-348",
+    "name": "Council Bluffs",
+    "lat": 41.262,
+    "lng": -95.861,
+    "commodity": "Corn",
+    "ticker": "ZC=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-349",
+    "name": "Enid Grain",
+    "lat": 36.395,
+    "lng": -97.878,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-350",
+    "name": "Garden City Grain",
+    "lat": 37.972,
+    "lng": -100.872,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-351",
+    "name": "Amarillo Grain",
+    "lat": 35.222,
+    "lng": -101.831,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-352",
+    "name": "Sioux City Grain",
+    "lat": 42.5,
+    "lng": -96.4,
+    "commodity": "Corn",
+    "ticker": "ZC=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-353",
+    "name": "Davenport Grain",
+    "lat": 41.524,
+    "lng": -90.578,
+    "commodity": "Soybeans",
+    "ticker": "ZS=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-354",
+    "name": "Decatur ADM",
+    "lat": 39.84,
+    "lng": -88.955,
+    "commodity": "Soybeans",
+    "ticker": "ZS=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-355",
+    "name": "Peoria Grain",
+    "lat": 40.693,
+    "lng": -89.589,
+    "commodity": "Corn",
+    "ticker": "ZC=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-356",
+    "name": "Quincy Grain",
+    "lat": 39.936,
+    "lng": -91.41,
+    "commodity": "Soybeans",
+    "ticker": "ZS=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-357",
+    "name": "St. Louis Grain",
+    "lat": 38.627,
+    "lng": -90.2,
+    "commodity": "Soybeans",
+    "ticker": "ZS=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-358",
+    "name": "Memphis Grain",
+    "lat": 35.15,
+    "lng": -90.05,
+    "commodity": "Soybeans",
+    "ticker": "ZS=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-359",
+    "name": "Wichita Grain",
+    "lat": 37.688,
+    "lng": -97.336,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-360",
+    "name": "Galveston Grain",
+    "lat": 29.301,
+    "lng": -94.797,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-361",
+    "name": "Santos Grain",
+    "lat": -23.96,
+    "lng": -46.3,
+    "commodity": "Soybeans",
+    "ticker": "ZS=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-362",
+    "name": "Paranagua",
+    "lat": -25.503,
+    "lng": -48.51,
+    "commodity": "Soybeans",
+    "ticker": "ZS=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-363",
+    "name": "Rio Grande Grain",
+    "lat": -32.035,
+    "lng": -52.098,
+    "commodity": "Soybeans",
+    "ticker": "ZS=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-364",
+    "name": "Itaqui Grain",
+    "lat": -2.578,
+    "lng": -44.367,
+    "commodity": "Soybeans",
+    "ticker": "ZS=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-365",
+    "name": "Barcarena Grain",
+    "lat": -1.505,
+    "lng": -48.625,
+    "commodity": "Soybeans",
+    "ticker": "ZS=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-366",
+    "name": "Santarem Grain",
+    "lat": -2.423,
+    "lng": -54.72,
+    "commodity": "Soybeans",
+    "ticker": "ZS=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-367",
+    "name": "Sao Francisco do Sul",
+    "lat": -26.24,
+    "lng": -48.635,
+    "commodity": "Corn",
+    "ticker": "ZC=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-368",
+    "name": "Imbituba Grain",
+    "lat": -28.23,
+    "lng": -48.655,
+    "commodity": "Corn",
+    "ticker": "ZC=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-369",
+    "name": "Rosario Grain",
+    "lat": -32.944,
+    "lng": -60.65,
+    "commodity": "Soybeans",
+    "ticker": "ZS=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-370",
+    "name": "San Lorenzo Grain",
+    "lat": -32.75,
+    "lng": -60.735,
+    "commodity": "Soybeans",
+    "ticker": "ZS=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-371",
+    "name": "Bahia Blanca Grain",
+    "lat": -38.788,
+    "lng": -62.272,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-372",
+    "name": "Quequen Grain",
+    "lat": -38.575,
+    "lng": -58.705,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-373",
+    "name": "Buenos Aires Grain",
+    "lat": -34.602,
+    "lng": -58.368,
+    "commodity": "Soybeans",
+    "ticker": "ZS=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-374",
+    "name": "Vancouver Grain",
+    "lat": 49.288,
+    "lng": -123.095,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-375",
+    "name": "Prince Rupert Grain",
+    "lat": 54.315,
+    "lng": -130.327,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-376",
+    "name": "Thunder Bay Grain",
+    "lat": 48.41,
+    "lng": -89.218,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-377",
+    "name": "Churchill Grain",
+    "lat": 58.768,
+    "lng": -94.165,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-378",
+    "name": "Hamilton Grain",
+    "lat": 43.27,
+    "lng": -79.865,
+    "commodity": "Corn",
+    "ticker": "ZC=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-379",
+    "name": "Odesa Grain",
+    "lat": 46.49,
+    "lng": 30.74,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-380",
+    "name": "Chornomorsk Grain",
+    "lat": 46.3,
+    "lng": 30.655,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-381",
+    "name": "Pivdennyi Grain",
+    "lat": 46.6,
+    "lng": 31.02,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-382",
+    "name": "Constanta Grain",
+    "lat": 44.16,
+    "lng": 28.65,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-383",
+    "name": "Varna Grain",
+    "lat": 43.197,
+    "lng": 27.92,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-384",
+    "name": "Novorossiysk Grain",
+    "lat": 44.72,
+    "lng": 37.79,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-385",
+    "name": "Rostov-on-Don Grain",
+    "lat": 47.222,
+    "lng": 39.72,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-386",
+    "name": "Azov Grain",
+    "lat": 47.108,
+    "lng": 39.423,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-387",
+    "name": "Rouen Grain",
+    "lat": 49.443,
+    "lng": 1.062,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-388",
+    "name": "La Pallice Grain",
+    "lat": 46.16,
+    "lng": -1.22,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-389",
+    "name": "Hamburg Grain",
+    "lat": 53.54,
+    "lng": 9.98,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-390",
+    "name": "Amsterdam Grain",
+    "lat": 52.4,
+    "lng": 4.85,
+    "commodity": "Soybeans",
+    "ticker": "ZS=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-391",
+    "name": "Ghent Grain",
+    "lat": 51.11,
+    "lng": 3.76,
+    "commodity": "Corn",
+    "ticker": "ZC=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-392",
+    "name": "Gdynia Grain",
+    "lat": 54.534,
+    "lng": 18.548,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-393",
+    "name": "Gdansk Grain",
+    "lat": 54.393,
+    "lng": 18.67,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-394",
+    "name": "Kwinana Grain",
+    "lat": -32.23,
+    "lng": 115.765,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-395",
+    "name": "Albany Grain",
+    "lat": -35.028,
+    "lng": 117.884,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-396",
+    "name": "Port Adelaide Grain",
+    "lat": -34.78,
+    "lng": 138.48,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-397",
+    "name": "Port Lincoln Grain",
+    "lat": -34.72,
+    "lng": 135.86,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-398",
+    "name": "Geelong Grain",
+    "lat": -38.12,
+    "lng": 144.36,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-399",
+    "name": "Newcastle Grain",
+    "lat": -32.92,
+    "lng": 151.78,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-400",
+    "name": "Esperance Grain",
+    "lat": -33.87,
+    "lng": 121.895,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Grain Hub"
+  },
+  {
+    "id": "node-401",
+    "name": "Strait of Hormuz",
+    "lat": 26.5667,
+    "lng": 56.25,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Choke Point"
+  },
+  {
+    "id": "node-402",
+    "name": "Strait of Malacca",
+    "lat": 2.5,
+    "lng": 101.2,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Choke Point"
+  },
+  {
+    "id": "node-403",
+    "name": "Singapore Strait",
+    "lat": 1.22,
+    "lng": 103.75,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Choke Point"
+  },
+  {
+    "id": "node-404",
+    "name": "Suez Canal",
+    "lat": 30.455,
+    "lng": 32.35,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Choke Point"
+  },
+  {
+    "id": "node-405",
+    "name": "Bab el-Mandeb",
+    "lat": 12.5833,
+    "lng": 43.3333,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Choke Point"
+  },
+  {
+    "id": "node-406",
+    "name": "Panama Canal",
+    "lat": 9.08,
+    "lng": -79.68,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Choke Point"
+  },
+  {
+    "id": "node-407",
+    "name": "Cape of Good Hope",
+    "lat": -34.3568,
+    "lng": 18.474,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Choke Point"
+  },
+  {
+    "id": "node-408",
+    "name": "Strait of Gibraltar",
+    "lat": 35.96,
+    "lng": -5.5,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Choke Point"
+  },
+  {
+    "id": "node-409",
+    "name": "Bosphorus",
+    "lat": 41.118,
+    "lng": 29.075,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Choke Point"
+  },
+  {
+    "id": "node-410",
+    "name": "Dardanelles",
+    "lat": 40.2,
+    "lng": 26.4,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Choke Point"
+  },
+  {
+    "id": "node-411",
+    "name": "Strait of Dover",
+    "lat": 51.0,
+    "lng": 1.45,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Choke Point"
+  },
+  {
+    "id": "node-412",
+    "name": "Skagerrak",
+    "lat": 57.75,
+    "lng": 9.0,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Choke Point"
+  },
+  {
+    "id": "node-413",
+    "name": "Oresund",
+    "lat": 55.79,
+    "lng": 12.75,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Choke Point"
+  },
+  {
+    "id": "node-414",
+    "name": "Lombok Strait",
+    "lat": -8.45,
+    "lng": 115.7,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Choke Point"
+  },
+  {
+    "id": "node-415",
+    "name": "Sunda Strait",
+    "lat": -6.0,
+    "lng": 105.8,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Choke Point"
+  },
+  {
+    "id": "node-416",
+    "name": "Taiwan Strait",
+    "lat": 24.5,
+    "lng": 119.0,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "Choke Point"
+  },
+  {
+    "id": "node-417",
+    "name": "Korea Strait",
+    "lat": 34.0,
+    "lng": 129.0,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "Choke Point"
+  },
+  {
+    "id": "node-418",
+    "name": "Luzon Strait",
+    "lat": 20.3,
+    "lng": 121.8,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "Choke Point"
+  },
+  {
+    "id": "node-419",
+    "name": "Windward Passage",
+    "lat": 20.0,
+    "lng": -74.0,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Choke Point"
+  },
+  {
+    "id": "node-420",
+    "name": "Yucatan Channel",
+    "lat": 21.5,
+    "lng": -85.8,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Choke Point"
+  },
+  {
+    "id": "node-421",
+    "name": "Straits of Florida",
+    "lat": 24.2,
+    "lng": -81.2,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Choke Point"
+  },
+  {
+    "id": "node-422",
+    "name": "Mozambique Channel",
+    "lat": -17.0,
+    "lng": 42.0,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Choke Point"
+  },
+  {
+    "id": "node-423",
+    "name": "Kerch Strait",
+    "lat": 45.35,
+    "lng": 36.65,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Choke Point"
+  },
+  {
+    "id": "node-424",
+    "name": "Strait of Magellan",
+    "lat": -52.6,
+    "lng": -69.8,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Choke Point"
+  },
+  {
+    "id": "node-425",
+    "name": "Torres Strait",
+    "lat": -10.5,
+    "lng": 142.3,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "Choke Point"
+  },
+  {
+    "id": "node-426",
+    "name": "Bering Strait",
+    "lat": 65.75,
+    "lng": -169.0,
+    "commodity": "Crude Oil",
+    "ticker": "CL=F",
+    "type": "Choke Point"
+  },
+  {
+    "id": "node-427",
+    "name": "Makassar Strait",
+    "lat": -2.0,
+    "lng": 118.5,
+    "commodity": "LNG",
+    "ticker": "NG=F",
+    "type": "Choke Point"
+  },
+  {
+    "id": "node-428",
+    "name": "Kiel Canal",
+    "lat": 54.3,
+    "lng": 9.66,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Choke Point"
+  },
+  {
+    "id": "node-429",
+    "name": "Cape Horn",
+    "lat": -55.9833,
+    "lng": -67.2667,
+    "commodity": "Crude Oil",
+    "ticker": "BZ=F",
+    "type": "Choke Point"
+  },
+  {
+    "id": "node-430",
+    "name": "St. Lawrence Seaway",
+    "lat": 48.15,
+    "lng": -69.4,
+    "commodity": "Wheat",
+    "ticker": "ZW=F",
+    "type": "Choke Point"
+  },
+  {
+    "id": "node-431",
+    "name": "Gary Works",
+    "lat": 41.617,
+    "lng": -87.336,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-432",
+    "name": "Burns Harbor",
+    "lat": 41.64,
+    "lng": -87.14,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-433",
+    "name": "Indiana Harbor",
+    "lat": 41.665,
+    "lng": -87.445,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-434",
+    "name": "Middletown Works",
+    "lat": 39.49,
+    "lng": -84.39,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-435",
+    "name": "Granite City Works",
+    "lat": 38.7,
+    "lng": -90.14,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-436",
+    "name": "Edgar Thomson",
+    "lat": 40.395,
+    "lng": -79.86,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-437",
+    "name": "Fairfield Works",
+    "lat": 33.49,
+    "lng": -86.91,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-438",
+    "name": "Nucor Berkeley",
+    "lat": 33.1,
+    "lng": -79.98,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-439",
+    "name": "Nucor Hickman",
+    "lat": 35.77,
+    "lng": -89.93,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-440",
+    "name": "Steel Dynamics Butler",
+    "lat": 41.43,
+    "lng": -84.87,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-441",
+    "name": "Steel Dynamics Columbus",
+    "lat": 33.5,
+    "lng": -88.42,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-442",
+    "name": "Cleveland Works",
+    "lat": 41.47,
+    "lng": -81.68,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-443",
+    "name": "ArcelorMittal Dofasco",
+    "lat": 43.26,
+    "lng": -79.79,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-444",
+    "name": "Algoma Steel",
+    "lat": 46.52,
+    "lng": -84.35,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-445",
+    "name": "ArcelorMittal Dunkirk",
+    "lat": 51.04,
+    "lng": 2.31,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-446",
+    "name": "ArcelorMittal Fos-sur-Mer",
+    "lat": 43.43,
+    "lng": 4.9,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-447",
+    "name": "ArcelorMittal Ghent",
+    "lat": 51.18,
+    "lng": 3.78,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-448",
+    "name": "Thyssenkrupp Duisburg",
+    "lat": 51.49,
+    "lng": 6.74,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-449",
+    "name": "Salzgitter Steel",
+    "lat": 52.15,
+    "lng": 10.4,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-450",
+    "name": "Voestalpine Linz",
+    "lat": 48.28,
+    "lng": 14.33,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-451",
+    "name": "Acciaierie d'Italia Taranto",
+    "lat": 40.49,
+    "lng": 17.21,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-452",
+    "name": "ArcelorMittal Gijon",
+    "lat": 43.55,
+    "lng": -5.7,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-453",
+    "name": "Tata Port Talbot",
+    "lat": 51.575,
+    "lng": -3.78,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-454",
+    "name": "Tata IJmuiden",
+    "lat": 52.47,
+    "lng": 4.61,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-455",
+    "name": "ArcelorMittal Dabrowa Gornicza",
+    "lat": 50.33,
+    "lng": 19.27,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-456",
+    "name": "U. S. Steel Kosice",
+    "lat": 48.73,
+    "lng": 21.25,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-457",
+    "name": "Liberty Galati",
+    "lat": 45.43,
+    "lng": 28.05,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-458",
+    "name": "ArcelorMittal Bremen",
+    "lat": 53.12,
+    "lng": 8.7,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-459",
+    "name": "Severstal Cherepovets",
+    "lat": 59.14,
+    "lng": 37.91,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-460",
+    "name": "MMK Magnitogorsk",
+    "lat": 53.43,
+    "lng": 58.98,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-461",
+    "name": "NLMK Lipetsk",
+    "lat": 52.57,
+    "lng": 39.6,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-462",
+    "name": "Baosteel Baoshan",
+    "lat": 31.41,
+    "lng": 121.48,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-463",
+    "name": "WISCO Wuhan",
+    "lat": 30.63,
+    "lng": 114.43,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-464",
+    "name": "Ansteel Anshan",
+    "lat": 41.12,
+    "lng": 122.99,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-465",
+    "name": "Shougang Caofeidian",
+    "lat": 39.21,
+    "lng": 118.45,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-466",
+    "name": "HBIS Tangshan",
+    "lat": 39.63,
+    "lng": 118.18,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-467",
+    "name": "Shagang Zhangjiagang",
+    "lat": 31.87,
+    "lng": 120.55,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-468",
+    "name": "Baosteel Zhanjiang",
+    "lat": 21.15,
+    "lng": 110.4,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-469",
+    "name": "POSCO Pohang",
+    "lat": 36.02,
+    "lng": 129.4,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-470",
+    "name": "POSCO Gwangyang",
+    "lat": 34.91,
+    "lng": 127.74,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-471",
+    "name": "Hyundai Steel Dangjin",
+    "lat": 36.98,
+    "lng": 126.72,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-472",
+    "name": "Nippon Steel Kimitsu",
+    "lat": 35.33,
+    "lng": 139.86,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-473",
+    "name": "JFE Kurashiki",
+    "lat": 34.51,
+    "lng": 133.75,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-474",
+    "name": "JFE Chiba",
+    "lat": 35.57,
+    "lng": 140.09,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-475",
+    "name": "Nippon Steel Yawata",
+    "lat": 33.89,
+    "lng": 130.81,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-476",
+    "name": "China Steel Kaohsiung",
+    "lat": 22.54,
+    "lng": 120.34,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-477",
+    "name": "JSW Vijayanagar",
+    "lat": 15.18,
+    "lng": 76.66,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-478",
+    "name": "Tata Steel Jamshedpur",
+    "lat": 22.79,
+    "lng": 86.2,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-479",
+    "name": "SAIL Bhilai",
+    "lat": 21.19,
+    "lng": 81.39,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-480",
+    "name": "Erdemir Eregli",
+    "lat": 41.28,
+    "lng": 31.42,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-481",
+    "name": "Mobarakeh Steel",
+    "lat": 32.25,
+    "lng": 51.43,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-482",
+    "name": "Hadeed Jubail",
+    "lat": 27.0,
+    "lng": 49.58,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-483",
+    "name": "CSN Volta Redonda",
+    "lat": -22.51,
+    "lng": -44.1,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-484",
+    "name": "Usiminas Ipatinga",
+    "lat": -19.47,
+    "lng": -42.54,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-485",
+    "name": "BlueScope Port Kembla",
+    "lat": -34.463,
+    "lng": 150.9,
+    "commodity": "Steel",
+    "ticker": "HRC=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-486",
+    "name": "EGA Al Taweelah",
+    "lat": 24.76,
+    "lng": 54.69,
+    "commodity": "Aluminum",
+    "ticker": "ALI=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-487",
+    "name": "Qatalum",
+    "lat": 24.98,
+    "lng": 51.56,
+    "commodity": "Aluminum",
+    "ticker": "ALI=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-488",
+    "name": "Alba Bahrain",
+    "lat": 26.08,
+    "lng": 50.62,
+    "commodity": "Aluminum",
+    "ticker": "ALI=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-489",
+    "name": "Mozal",
+    "lat": -25.915,
+    "lng": 32.42,
+    "commodity": "Aluminum",
+    "ticker": "ALI=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-490",
+    "name": "Hillside Aluminium",
+    "lat": -28.77,
+    "lng": 32.05,
+    "commodity": "Aluminum",
+    "ticker": "ALI=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-491",
+    "name": "Boyne Smelters",
+    "lat": -23.94,
+    "lng": 151.35,
+    "commodity": "Aluminum",
+    "ticker": "ALI=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-492",
+    "name": "Rio Tinto Kitimat",
+    "lat": 54.02,
+    "lng": -128.69,
+    "commodity": "Aluminum",
+    "ticker": "ALI=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-493",
+    "name": "Alouette Sept-Iles",
+    "lat": 49.18,
+    "lng": -68.2,
+    "commodity": "Aluminum",
+    "ticker": "ALI=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-494",
+    "name": "Aurubis Hamburg",
+    "lat": 53.52,
+    "lng": 9.96,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-495",
+    "name": "Guixi Smelter",
+    "lat": 28.29,
+    "lng": 117.21,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-496",
+    "name": "Ilo Smelter",
+    "lat": -17.64,
+    "lng": -71.34,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-497",
+    "name": "Onsan Smelter",
+    "lat": 35.43,
+    "lng": 129.35,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-498",
+    "name": "Horne Smelter",
+    "lat": 48.25,
+    "lng": -79.02,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-499",
+    "name": "Atlantic Copper Huelva",
+    "lat": 37.23,
+    "lng": -6.95,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Refinery"
+  },
+  {
+    "id": "node-500",
+    "name": "Boliden Ronnskar",
+    "lat": 64.67,
+    "lng": 21.28,
+    "commodity": "Copper",
+    "ticker": "HG=F",
+    "type": "Refinery"
+  }
+]
