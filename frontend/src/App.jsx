@@ -22,7 +22,7 @@ class GlobeBoundary extends Component {
   render() {
     if (this.state.failed) {
       return (
-        <div className="grid h-full place-items-center px-4 text-center text-xs text-slate-500">
+        <div className="grid h-full place-items-center px-4 text-center text-xs text-slate-600">
           The 3D globe could not be started. The 2D map is still available.
         </div>
       )
@@ -47,22 +47,23 @@ const TYPE_COLORS = {
 
 const TYPE_BADGES = {
   'Extraction Site':
-    'bg-sky-50 text-sky-700 border border-sky-200 rounded-md text-[10px] px-2 py-0.5 font-medium',
+    'rounded-md border border-sky-200 bg-sky-50 px-2 py-0.5 text-xs font-medium text-sky-700',
   'LNG Terminal':
-    'bg-sky-50 text-sky-700 border border-sky-200 rounded-md text-[10px] px-2 py-0.5 font-medium',
+    'rounded-md border border-sky-200 bg-sky-50 px-2 py-0.5 text-xs font-medium text-sky-700',
   'Grain Hub':
-    'bg-sky-50 text-sky-800 border border-sky-200 rounded-md text-[10px] px-2 py-0.5 font-medium',
+    'rounded-md border border-sky-200 bg-sky-50 px-2 py-0.5 text-xs font-medium text-sky-800',
   Refinery:
-    'bg-sky-100 text-sky-800 border border-sky-200 rounded-md text-[10px] px-2 py-0.5 font-medium',
+    'rounded-md border border-sky-200 bg-sky-100 px-2 py-0.5 text-xs font-medium text-sky-800',
   'Choke Point':
-    'bg-amber-50 text-amber-700 border border-amber-200/60 rounded-md text-[10px] px-2 py-0.5 font-medium',
+    'rounded-md border border-amber-200/60 bg-amber-50 px-2 py-0.5 text-xs font-medium text-amber-700',
 }
 
 const FILTERS = ['All', ...Object.keys(TYPE_COLORS)]
 const STRATEGIES = ['Short Strangle', 'Long Straddle']
-const LABEL = 'text-[10px] font-mono tracking-wider text-slate-400 uppercase'
+const LABEL = 'mb-1 block font-sans text-xs font-semibold text-slate-700'
+const VALUE = 'text-xs font-semibold text-slate-800'
 const FIELD =
-  'w-full bg-white border border-slate-200 text-xs px-2.5 py-1.5 rounded-md focus:ring-1 focus:ring-sky-600 outline-none'
+  'w-full border border-slate-200 bg-white rounded-md px-3 py-2 text-xs text-slate-900 outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500'
 const HANDLE =
   'shrink-0 bg-slate-200/60 hover:bg-sky-400 transition-colors'
 
@@ -243,16 +244,18 @@ function App() {
 
   return (
     <div className="flex h-screen w-screen flex-col overflow-hidden bg-sky-50/50 font-sans text-slate-900 antialiased">
-      <header className="flex shrink-0 items-center justify-between border-b border-slate-200 bg-sky-50/50 px-3 py-2">
-        <div className="flex items-center gap-2.5">
-          <span className="h-2 w-2 rounded-full bg-sky-500" />
-          <h1 className="text-xs font-semibold tracking-[0.14em] text-slate-900">
-            HEDGEHACKS / TERMINAL
-          </h1>
-        </div>
-        <p className={LABEL}>
-          {nodes.length} nodes · {Object.keys(typeCounts).length} classes
-        </p>
+      <header className="flex shrink-0 items-center justify-between gap-4 border-b border-slate-200 bg-white px-4 py-2">
+        <h1 className="font-sans text-sm font-bold text-slate-900">
+          HEDGEHACKS
+          <span className="font-normal text-slate-500"> / TERMINAL</span>
+        </h1>
+        <input
+          value={query}
+          onChange={(event) => setQuery(event.target.value)}
+          placeholder="Search assets"
+          aria-label="Search commodity nodes"
+          className="w-64 border border-slate-200 bg-white rounded-md px-3 py-1.5 text-xs text-slate-900 outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
+        />
       </header>
 
       <div className="min-h-0 flex-1">
@@ -262,19 +265,10 @@ function App() {
               className="flex h-full flex-col overflow-hidden bg-white border-r border-slate-200"
               aria-label="Filters and assets"
             >
-              <div className="shrink-0 border-b border-slate-200 px-3 py-2.5">
-                <p className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
-                  Filters & assets
-                </p>
-                <input
-                  value={query}
-                  onChange={(event) => setQuery(event.target.value)}
-                  placeholder="Search name, commodity, or ticker"
-                  aria-label="Search commodity nodes"
-                  className="mt-2 w-full border border-slate-200 bg-white px-3 py-1.5 text-xs rounded-md outline-none focus:ring-1 focus:ring-sky-600"
-                />
+              <div className="shrink-0 border-b border-slate-200 px-3 py-3">
+                <p className="font-sans text-xs font-semibold text-slate-700">Filters</p>
                 <div
-                  className="mt-2 flex flex-wrap gap-1"
+                  className="mt-2 flex flex-wrap gap-1.5"
                   role="tablist"
                   aria-label="Filter by asset type"
                 >
@@ -285,18 +279,18 @@ function App() {
                       onClick={() => setTypeFilter(filter)}
                       className={
                         filter === typeFilter
-                          ? 'bg-sky-600 hover:bg-sky-700 text-white shadow-none font-medium text-xs py-1 px-3 rounded-md'
-                          : 'border border-slate-200 bg-white text-slate-600 hover:bg-sky-50 text-xs py-1 px-3 rounded-md transition-colors'
+                          ? 'rounded-lg bg-sky-600 px-3.5 py-1.5 text-xs font-medium text-white'
+                          : 'rounded-lg bg-slate-100 px-3.5 py-1.5 text-xs font-medium text-slate-700 transition-colors hover:bg-slate-200/70'
                       }
                     >
                       {filter === 'All' ? `All ${nodes.length}` : filter}
                     </button>
                   ))}
                 </div>
-                <p className={`${LABEL} mt-2`}>{filtered.length} shown</p>
+                <p className="mt-2 text-xs text-slate-600">{filtered.length} shown</p>
               </div>
               {filtered.length === 0 ? (
-                <p className="px-3 py-3 text-xs text-slate-500">No assets match this search.</p>
+                <p className="px-3 py-3 text-xs text-slate-600">No assets match this search.</p>
               ) : (
                 <ul ref={listRef} className="min-h-0 flex-1 divide-y divide-slate-100 overflow-y-auto">
                   {filtered.map((node) => (
@@ -313,11 +307,11 @@ function App() {
                           <span className="block truncate text-xs font-medium text-slate-900">
                             {node.name}
                           </span>
-                          <span className="block truncate text-[10px] text-slate-500">
+                          <span className="block truncate text-xs text-slate-600">
                             {node.commodity}
                           </span>
                         </span>
-                        <span className="shrink-0 font-mono text-[10px] font-semibold text-sky-600">
+                        <span className={`shrink-0 ${VALUE}`}>
                           {node.ticker}
                         </span>
                       </button>
@@ -374,11 +368,11 @@ function App() {
                             <strong className="block text-xs font-semibold text-slate-900">
                               {node.name}
                             </strong>
-                            <p className="mt-1 text-[10px] text-slate-500">{node.type}</p>
-                            <p className="font-mono text-xs font-semibold text-sky-600">
+                            <p className="mt-1 text-xs text-slate-600">{node.type}</p>
+                            <p className="text-xs font-semibold text-slate-800">
                               {node.commodity} · {node.ticker}
                             </p>
-                            <p className="text-[10px] text-slate-500">
+                            <p className="text-xs text-slate-600">
                               {formatCoordinate(node.lat, 'N', 'S')},{' '}
                               {formatCoordinate(node.lng, 'E', 'W')}
                             </p>
@@ -399,7 +393,7 @@ function App() {
                       <GlobeBoundary>
                         <Suspense
                           fallback={
-                            <div className="grid h-full place-items-center text-xs text-slate-500">
+                            <div className="grid h-full place-items-center text-xs text-slate-600">
                               Loading globe…
                             </div>
                           }
@@ -414,14 +408,14 @@ function App() {
                       </GlobeBoundary>
                     </div>
                   ) : null}
-                  <div className="absolute right-2 top-2 z-[600] flex overflow-hidden rounded-md border border-sky-200 bg-white">
+                  <div className="absolute right-2 top-2 z-[600] flex overflow-hidden rounded-lg border border-slate-200 bg-white">
                     <button
                       type="button"
                       onClick={() => setProjection('2d')}
                       className={
                         projection === '2d'
-                          ? 'bg-sky-600 px-2.5 py-1 text-xs font-medium text-white'
-                          : 'px-2.5 py-1 text-xs text-slate-600 hover:bg-sky-50'
+                          ? 'bg-sky-600 px-3 py-1.5 text-xs font-medium text-white'
+                          : 'px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-100'
                       }
                     >
                       2D Map
@@ -434,8 +428,8 @@ function App() {
                       }}
                       className={
                         projection === '3d'
-                          ? 'bg-sky-600 px-2.5 py-1 text-xs font-medium text-white'
-                          : 'px-2.5 py-1 text-xs text-slate-600 hover:bg-sky-50'
+                          ? 'bg-sky-600 px-3 py-1.5 text-xs font-medium text-white'
+                          : 'px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-100'
                       }
                     >
                       3D Globe
@@ -445,7 +439,7 @@ function App() {
                   <div className="absolute bottom-2 left-2 z-[500] rounded-md border border-slate-200 bg-white px-2 py-1.5">
                     <p className={LABEL}>Node types</p>
                     {Object.entries(TYPE_COLORS).map(([type, color]) => (
-                      <div className="mt-1 flex items-center gap-1.5 text-[10px] text-slate-600" key={type}>
+                      <div className="mt-1 flex items-center gap-1.5 text-xs text-slate-600" key={type}>
                         <span className="h-1.5 w-1.5 rounded-full" style={{ background: color }} />
                         <span>
                           {type} · {typeCounts[type] ?? 0}
@@ -471,8 +465,8 @@ function App() {
                         onClick={() => setTray(id)}
                         className={
                           tray === id
-                            ? 'rounded-md border border-sky-600 bg-sky-600 px-2.5 py-1 text-[11px] font-medium text-white'
-                            : 'rounded-md border border-transparent px-2.5 py-1 text-[11px] text-slate-500 hover:bg-sky-50 hover:text-sky-700'
+                            ? 'rounded-lg bg-sky-600 px-3 py-1.5 text-xs font-medium text-white'
+                            : 'rounded-lg px-3 py-1.5 text-xs font-medium text-slate-700 transition-colors hover:bg-slate-100'
                         }
                       >
                         {label}
@@ -480,7 +474,7 @@ function App() {
                     ))}
                   </div>
                   {filtered.length === 0 ? (
-                    <p className={`px-3 py-3 text-xs text-slate-500 ${tray === 'directory' ? '' : 'hidden'}`}>
+                    <p className={`px-3 py-3 text-xs text-slate-600 ${tray === 'directory' ? '' : 'hidden'}`}>
                       No assets match this search.
                     </p>
                   ) : (
@@ -490,11 +484,11 @@ function App() {
                     >
                       <table className="w-full border-collapse text-left">
                         <thead className="sticky top-0 z-10">
-                          <tr className="border-b border-slate-200 bg-sky-50/60">
+                          <tr className="border-b border-slate-200 bg-slate-50">
                             {['Asset', 'Type', 'Commodity', 'Ticker', 'Coordinates'].map((heading) => (
                               <th
                                 key={heading}
-                                className="border-b border-slate-200 bg-sky-50/60 px-3 py-1.5 text-left text-[10px] font-mono font-medium uppercase tracking-wider text-slate-500"
+                                className="border-b border-slate-200 bg-slate-50 px-3 py-2 text-left font-sans text-xs font-semibold text-slate-700"
                               >
                                 {heading}
                               </th>
@@ -518,15 +512,15 @@ function App() {
                                 node.id === selectedId ? 'bg-sky-50' : ''
                               }`}
                             >
-                              <td className="px-3 py-1.5 font-medium text-slate-900">{node.name}</td>
+                              <td className="px-3 py-2 font-medium text-slate-800">{node.name}</td>
                               <td className="px-3 py-1.5">
                                 <span className={TYPE_BADGES[node.type]}>{node.type}</span>
                               </td>
                               <td className="px-3 py-1.5 text-slate-600">{node.commodity}</td>
-                              <td className="px-3 py-1.5 font-mono text-[10px] font-semibold text-sky-600">
+                              <td className="px-3 py-2 text-xs font-semibold text-slate-800">
                                 {node.ticker}
                               </td>
-                              <td className="px-3 py-1.5 font-mono text-[10px] text-slate-500">
+                              <td className="px-3 py-2 text-xs text-slate-600">
                                 {node.lat.toFixed(2)}, {node.lng.toFixed(2)}
                               </td>
                             </tr>
@@ -558,47 +552,41 @@ function App() {
               aria-label="Analytics and backtester"
             >
               <section>
-                <p className="text-[10px] font-mono uppercase tracking-widest text-slate-400">
+                <p className="font-sans text-xs font-semibold text-slate-600">
                   {selected ? selected.type : 'Active node'}
                 </p>
-                <h2 className="mt-1 text-2xl font-bold tracking-tight text-slate-900">
+                <h2 className="mt-1 font-sans text-xl font-semibold text-slate-900">
                   {selected ? selected.name : 'Choose a node'}
                 </h2>
                 {selected ? (
                   <dl className="mt-4 grid grid-cols-2 gap-3">
                     <div>
                       <dt className={LABEL}>Commodity</dt>
-                      <dd className="mt-1 text-xs font-semibold text-slate-900">{selected.commodity}</dd>
+                      <dd className={VALUE}>{selected.commodity}</dd>
                     </div>
                     <div>
                       <dt className={LABEL}>Ticker</dt>
-                      <dd className="mt-1 font-mono text-xs font-semibold text-sky-600">
-                        {selected.ticker}
-                      </dd>
+                      <dd className={VALUE}>{selected.ticker}</dd>
                     </div>
                     <div>
                       <dt className={LABEL}>Latitude</dt>
-                      <dd className="mt-1 font-mono text-xs font-semibold text-sky-600">
-                        {formatCoordinate(selected.lat, 'N', 'S')}
-                      </dd>
+                      <dd className={VALUE}>{formatCoordinate(selected.lat, 'N', 'S')}</dd>
                     </div>
                     <div>
                       <dt className={LABEL}>Longitude</dt>
-                      <dd className="mt-1 font-mono text-xs font-semibold text-sky-600">
-                        {formatCoordinate(selected.lng, 'E', 'W')}
-                      </dd>
+                      <dd className={VALUE}>{formatCoordinate(selected.lng, 'E', 'W')}</dd>
                     </div>
                   </dl>
                 ) : (
-                  <p className="mt-3 text-xs text-slate-500">
+                  <p className="mt-3 text-xs text-slate-600">
                     Select a directory row, table row, or map marker.
                   </p>
                 )}
               </section>
 
               <section ref={backtesterRef} className="space-y-3 border-t border-slate-200 pt-4">
-                <h3 className="text-[10px] font-mono uppercase tracking-widest text-slate-400">
-                  Quantitative options backtester
+                <h3 className="font-sans text-xs font-semibold text-slate-700">
+                  Options backtester
                 </h3>
                 <form
                   className="space-y-3"
@@ -607,7 +595,7 @@ function App() {
                     runBacktest()
                   }}
                 >
-                  <label className="block space-y-1">
+                  <label className="block">
                     <span className={LABEL}>Target ticker</span>
                     <input
                       ref={tickerInputRef}
@@ -615,10 +603,10 @@ function App() {
                       onChange={(event) => setTargetTicker(event.target.value)}
                       placeholder="CL=F"
                       aria-label="Target Ticker"
-                      className={`${FIELD} font-mono font-semibold text-sky-600`}
+                      className={FIELD}
                     />
                   </label>
-                  <label className="block space-y-1">
+                  <label className="block">
                     <span className={LABEL}>Strategy</span>
                     <select
                       value={strategy}
@@ -634,7 +622,7 @@ function App() {
                     </select>
                   </label>
                   <div className="grid grid-cols-2 gap-2">
-                    <label className="block space-y-1">
+                    <label className="block">
                       <span className={LABEL}>DTE</span>
                       <input
                         type="number"
@@ -647,7 +635,7 @@ function App() {
                         className={FIELD}
                       />
                     </label>
-                    <label className="block space-y-1">
+                    <label className="block">
                       <span className={LABEL}>Budget ($USD)</span>
                       <input
                         type="number"
@@ -662,7 +650,7 @@ function App() {
                     </label>
                   </div>
                   <div className="grid grid-cols-2 gap-2">
-                    <label className="block space-y-1">
+                    <label className="block">
                       <span className={LABEL}>Start date</span>
                       <input
                         type="date"
@@ -672,7 +660,7 @@ function App() {
                         className={FIELD}
                       />
                     </label>
-                    <label className="block space-y-1">
+                    <label className="block">
                       <span className={LABEL}>End date</span>
                       <input
                         type="date"
@@ -686,7 +674,7 @@ function App() {
                   {formError ? <p className="text-xs text-rose-600">{formError}</p> : null}
                   <button
                     type="submit"
-                    className="w-full rounded-md bg-sky-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-sky-700"
+                    className="w-full rounded-md bg-sky-600 px-4 py-2.5 text-xs font-semibold text-white transition-all hover:bg-sky-700"
                   >
                     Run backtest
                   </button>
@@ -695,7 +683,7 @@ function App() {
                 {backtestRequest ? (
                   <p className="text-xs text-slate-600">
                     Awaiting backend integration for{' '}
-                    <span className="font-mono font-semibold text-sky-600">
+                    <span className="font-semibold text-slate-800">
                       {backtestRequest.ticker}
                     </span>{' '}
                     · {backtestRequest.strategy} · {backtestRequest.dte} DTE · $
@@ -710,18 +698,18 @@ function App() {
                 <div className="space-y-3 border-t border-slate-200 pt-3">
                   <div>
                     <h3 className={LABEL}>P&L curve chart</h3>
-                    <div className="mt-2 grid min-h-[72px] place-items-center rounded-md border border-slate-200 text-[10px] text-slate-400">
+                    <div className="grid min-h-[72px] place-items-center rounded-md border border-slate-200 text-xs text-slate-600">
                       Awaiting backend integration
                     </div>
                   </div>
                   <div className="grid grid-cols-2 gap-2">
                     <div>
                       <h3 className={LABEL}>Win rate</h3>
-                      <p className="mt-1 font-mono text-xs font-semibold text-sky-600">—</p>
+                      <p className={VALUE}>—</p>
                     </div>
                     <div>
                       <h3 className={LABEL}>Max drawdown</h3>
-                      <p className="mt-1 font-mono text-xs font-semibold text-sky-600">—</p>
+                      <p className={VALUE}>—</p>
                     </div>
                   </div>
                   <div>
@@ -731,7 +719,7 @@ function App() {
                       rows={3}
                       aria-label="Backtest Explanation"
                       placeholder="An explanation of the backtest will appear here after the backend returns results."
-                      className={`${FIELD} mt-2 resize-none`}
+                      className={`${FIELD} resize-none`}
                     />
                   </div>
                 </div>

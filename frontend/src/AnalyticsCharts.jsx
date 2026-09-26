@@ -13,9 +13,9 @@ export function PriceChart({ node }) {
       autoSize: true,
       layout: {
         background: { type: ColorType.Solid, color: '#ffffff' },
-        textColor: '#64748b',
-        fontSize: 11,
-        fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace',
+        textColor: '#334155',
+        fontSize: 12,
+        fontFamily: 'Inter, Segoe UI, system-ui, sans-serif',
       },
       grid: {
         vertLines: { color: '#f1f5f9' },
@@ -54,7 +54,7 @@ export function PriceChart({ node }) {
 
   if (!node || !series) {
     return (
-      <div className="grid h-full place-items-center px-4 text-xs text-slate-500">
+      <div className="grid h-full place-items-center px-4 text-xs text-slate-600">
         Select a node to plot its price path and volatility band.
       </div>
     )
@@ -63,10 +63,10 @@ export function PriceChart({ node }) {
   return (
     <div className="flex h-full min-h-0 flex-col">
       <div className="flex shrink-0 items-baseline justify-between gap-3 px-3 py-1.5">
-        <p className="text-[10px] font-mono uppercase tracking-wider text-slate-400">
+        <p className="font-sans text-xs font-semibold text-slate-700">
           {node.ticker} · {node.commodity}
         </p>
-        <p className="font-mono text-xs font-semibold text-sky-600">
+        <p className="text-xs font-semibold text-slate-800">
           {formatPrice(series.last)} · vol {(series.realizedVol * 100).toFixed(1)}%
         </p>
       </div>
@@ -79,7 +79,7 @@ export function PayoffDiagram({ node, strategy }) {
   const series = useMemo(() => (node ? pricePath(node.ticker) : null), [node])
   if (!node || !series) {
     return (
-      <div className="grid h-full place-items-center px-4 text-xs text-slate-500">
+      <div className="grid h-full place-items-center px-4 text-xs text-slate-600">
         Select a node to plot the options payoff.
       </div>
     )
@@ -115,10 +115,10 @@ export function PayoffDiagram({ node, strategy }) {
   return (
     <div className="flex h-full min-h-0 flex-col">
       <div className="flex shrink-0 items-baseline justify-between gap-3 px-3 py-1.5">
-        <p className="text-[10px] font-mono uppercase tracking-wider text-slate-400">
+        <p className="font-sans text-xs font-semibold text-slate-700">
           {strategy} · {node.ticker}
         </p>
-        <p className="font-mono text-[10px] font-semibold text-sky-600">{strikeNote}</p>
+        <p className="text-xs font-semibold text-slate-800">{strikeNote}</p>
       </div>
       <svg
         viewBox={`0 0 ${width} ${height}`}
@@ -142,7 +142,7 @@ export function PayoffDiagram({ node, strategy }) {
           strokeDasharray="4 3"
         />
         <path d={path} fill="none" stroke="#0284c7" strokeWidth="2.25" />
-        <text x={pad.left} y={height - 8} fill="#94a3b8" fontSize="10" fontFamily="ui-monospace, monospace">
+        <text x={pad.left} y={height - 8} fill="#475569" fontSize="10" fontFamily="Inter, Segoe UI, sans-serif">
           {formatPrice(minPrice)}
         </text>
         <text
@@ -150,7 +150,7 @@ export function PayoffDiagram({ node, strategy }) {
           y={height - 8}
           fill="#0284c7"
           fontSize="10"
-          fontFamily="ui-monospace, monospace"
+          fontFamily="Inter, Segoe UI, sans-serif"
           textAnchor="middle"
         >
           spot
@@ -158,17 +158,17 @@ export function PayoffDiagram({ node, strategy }) {
         <text
           x={width - pad.right}
           y={height - 8}
-          fill="#94a3b8"
+          fill="#475569"
           fontSize="10"
-          fontFamily="ui-monospace, monospace"
+          fontFamily="Inter, Segoe UI, sans-serif"
           textAnchor="end"
         >
           {formatPrice(maxPrice)}
         </text>
-        <text x={4} y={pad.top + 8} fill="#94a3b8" fontSize="10" fontFamily="ui-monospace, monospace">
+        <text x={4} y={pad.top + 8} fill="#475569" fontSize="10" fontFamily="Inter, Segoe UI, sans-serif">
           {formatPrice(maxPnl)}
         </text>
-        <text x={4} y={zero + 4} fill="#94a3b8" fontSize="10" fontFamily="ui-monospace, monospace">
+        <text x={4} y={zero + 4} fill="#475569" fontSize="10" fontFamily="Inter, Segoe UI, sans-serif">
           0
         </text>
       </svg>
