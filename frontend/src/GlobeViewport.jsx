@@ -1,12 +1,20 @@
 import { useEffect, useRef, useState } from 'react'
 import Globe from 'react-globe.gl'
 
-const TYPE_COLORS = {
-  'Extraction Site': '#1E3A8A',
-  'LNG Terminal': '#0369A1',
-  'Grain Hub': '#0F766E',
-  Refinery: '#1D4ED8',
-  'Choke Point': '#C2410C',
+const SOLID_COLORS = {
+  'Extraction Site': '#f59e0b',
+  'LNG Terminal': '#0284c7',
+  'Grain Hub': '#7c3aed',
+  Refinery: '#10b981',
+  'Choke Point': '#f43f5e',
+}
+
+function getNodeSolidColor(type) {
+  return SOLID_COLORS[type] ?? '#0284c7'
+}
+
+function getNodeGlowColor(type) {
+  return SOLID_COLORS[type] ?? '#0284c7'
 }
 
 export default function GlobeViewport({ nodes, selected, active, onSelect }) {
@@ -91,9 +99,9 @@ export default function GlobeViewport({ nodes, selected, active, onSelect }) {
           pointsData={nodes}
           pointLat="lat"
           pointLng="lng"
-          pointColor={(node) => TYPE_COLORS[node.type] ?? '#0284c7'}
-          pointRadius={0.6}
-          pointAltitude={0.01}
+          pointColor={(node) => getNodeSolidColor(node.type)}
+          pointRadius={0.8}
+          pointAltitude={(node) => (node.id === selected?.id ? 0.05 : 0.02)}
           pointsMerge={false}
           pointsTransitionDuration={0}
           onPointClick={(point) => {
@@ -109,13 +117,13 @@ export default function GlobeViewport({ nodes, selected, active, onSelect }) {
               <span style="color: #64748b;">${node.type} • ${node.commodity}</span>
             </div>
           `}
-          ringsData={selected ? [selected] : []}
+          ringsData={nodes}
           ringLat="lat"
           ringLng="lng"
-          ringColor={() => '#0284c7'}
-          ringMaxRadius={4.2}
-          ringPropagationSpeed={2}
-          ringRepeatPeriod={900}
+          ringColor={(node) => getNodeGlowColor(node.type)}
+          ringMaxRadius={(node) => (node.id === selected?.id ? 3.5 : 1.8)}
+          ringPropagationSpeed={2.5}
+          ringRepeatPeriod={1200}
         />
       ) : null}
     </div>
