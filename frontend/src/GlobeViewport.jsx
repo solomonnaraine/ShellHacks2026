@@ -15,10 +15,28 @@ export default function GlobeViewport({ nodes, selected, active, onSelect }) {
   const elements = useRef(new Map())
   const onSelectRef = useRef(onSelect)
   const [size, setSize] = useState({ width: 0, height: 0 })
+  const [countries, setCountries] = useState([])
 
   useEffect(() => {
     onSelectRef.current = onSelect
   }, [onSelect])
+
+  useEffect(() => {
+    const controller = new AbortController()
+    fetch(
+      'https://raw.githubusercontent.com/vasturiano/react-globe.gl/master/example/datasets/ne_110m_admin_0_countries.geojson',
+      { signal: controller.signal },
+    )
+      .then((response) => {
+        if (!response.ok) throw new Error(`Country boundaries returned ${response.status}`)
+        return response.json()
+      })
+      .then((data) => setCountries(data.features ?? []))
+      .catch((error) => {
+        if (error.name !== 'AbortError') setCountries([])
+      })
+    return () => controller.abort()
+  }, [])
 
   useEffect(() => {
     const element = wrapRef.current
@@ -81,15 +99,23 @@ export default function GlobeViewport({ nodes, selected, active, onSelect }) {
           ref={globeRef}
           width={size.width}
           height={size.height}
-          backgroundColor="#f0f9ff"
-          globeImageUrl="/earth-topology.png"
-          atmosphereColor="#0284c7"
-          atmosphereAltitude={0.16}
+          backgroundColor="#f8fafc"
+          globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
+          bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
+          atmosphereColor="#7dd3fc"
+          atmosphereAltitude={0.18}
           animateIn={false}
+          polygonsData={countries}
+          polygonCapColor={() => 'rgba(255, 255, 255, 0.1)'}
+          polygonSideColor={() => 'rgba(0, 0, 0, 0.05)'}
+          polygonStrokeColor={() => '#0284c7'}
+          polygonAltitude={0.006}
+          polygonsTransitionDuration={0}
+          polygonLabel={({ properties: d }) => `<b>${d.ADMIN} (${d.ISO_A2})</b>`}
           htmlElementsData={nodes}
           htmlLat="lat"
           htmlLng="lng"
-          htmlAltitude={0.01}
+          htmlAltitude={0.02}
           htmlElement={htmlElement}
           ringsData={selected ? [selected] : []}
           ringLat="lat"
