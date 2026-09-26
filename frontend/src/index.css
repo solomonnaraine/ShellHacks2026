@@ -1,5 +1,13 @@
 @import 'tailwindcss';
 
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
 .leaflet-container img {
   max-width: none !important;
   max-height: none !important;

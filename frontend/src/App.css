@@ -1,38 +1,32 @@
-.split {
-  --left: 70%;
-}
-
-.left-panel {
+.center-col {
   display: flex;
   flex-direction: column;
-  width: var(--left);
+  gap: 0.5rem;
   height: 100%;
-  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
 }
 
-.right-panel {
-  width: calc(100% - var(--left) - 10px);
-  height: 100%;
-  min-width: 0;
-}
-
-.map-stage {
+.map-frame {
   position: relative;
+  flex: 65 1 0;
   width: 100%;
-  height: 62%;
-  min-height: 220px;
+  min-height: 0;
+}
+
+.table-frame {
+  display: flex;
+  flex-direction: column;
+  flex: 35 1 0;
+  width: 100%;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .commodity-map {
   width: 100%;
   height: 100%;
   background: #f8fafc;
-}
-
-.asset-dock {
-  width: 100%;
-  height: 38%;
-  min-height: 180px;
 }
 
 .node-marker {
@@ -52,39 +46,11 @@
 }
 
 .leaflet-popup-content-wrapper {
-  border-radius: 16px;
+  border-radius: 12px;
   border: 1px solid rgb(226 232 240 / 0.9);
   box-shadow: 0 8px 24px rgb(15 23 42 / 0.08);
 }
 
 .leaflet-popup-tip {
   box-shadow: none;
-}
-
-@media (max-width: 980px) {
-  .split {
-    flex-direction: column;
-    height: auto;
-  }
-
-  .left-panel,
-  .right-panel {
-    width: 100%;
-    height: auto;
-  }
-
-  .divider {
-    display: none;
-  }
-
-  .map-stage,
-  .commodity-map {
-    width: 100%;
-    height: 52vh;
-  }
-
-  .asset-dock {
-    width: 100%;
-    height: 48vh;
-  }
 }

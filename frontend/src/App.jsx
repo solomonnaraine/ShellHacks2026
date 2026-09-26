@@ -14,15 +14,23 @@ const TYPE_COLORS = {
 }
 
 const TYPE_BADGES = {
-  'Extraction Site': 'bg-sky-50 text-sky-700 border border-sky-200/60',
-  'LNG Terminal': 'bg-cyan-50 text-cyan-700 border border-cyan-200/60',
-  'Grain Hub': 'bg-lime-50 text-lime-700 border border-lime-200/60',
-  Refinery: 'bg-violet-50 text-violet-700 border border-violet-200/60',
-  'Choke Point': 'bg-amber-50 text-amber-700 border border-amber-200/60',
+  'Extraction Site':
+    'bg-sky-50 text-sky-700 border border-sky-200/60 rounded-full text-[10px] px-2 py-0.5 font-medium',
+  'LNG Terminal':
+    'bg-blue-50 text-blue-700 border border-blue-200/60 rounded-full text-[10px] px-2 py-0.5 font-medium',
+  'Grain Hub':
+    'bg-lime-50 text-lime-700 border border-lime-200/60 rounded-full text-[10px] px-2 py-0.5 font-medium',
+  Refinery:
+    'bg-violet-50 text-violet-700 border border-violet-200/60 rounded-full text-[10px] px-2 py-0.5 font-medium',
+  'Choke Point':
+    'bg-amber-50 text-amber-700 border border-amber-200/60 rounded-full text-[10px] px-2 py-0.5 font-medium',
 }
 
 const FILTERS = ['All', ...Object.keys(TYPE_COLORS)]
 const STRATEGIES = ['Short Strangle', 'Long Straddle']
+const LABEL = 'text-[10px] font-mono tracking-wider text-slate-400 uppercase'
+const FIELD =
+  'w-full bg-white border border-slate-200 text-xs px-2.5 py-1.5 rounded-md focus:ring-1 focus:ring-slate-900 outline-none'
 
 const iconCache = new Map()
 
@@ -87,7 +95,6 @@ function App() {
   const [query, setQuery] = useState('')
   const [typeFilter, setTypeFilter] = useState('All')
   const [selectedId, setSelectedId] = useState(null)
-  const [leftPct, setLeftPct] = useState(70)
   const [targetTicker, setTargetTicker] = useState('')
   const [strategy, setStrategy] = useState(STRATEGIES[0])
   const [dte, setDte] = useState('')
@@ -98,11 +105,9 @@ function App() {
   const [backtestRequest, setBacktestRequest] = useState(null)
 
   const listRef = useRef(null)
+  const tableRef = useRef(null)
   const markerRefs = useRef({})
-  const splitRef = useRef(null)
   const mapRef = useRef(null)
-  const dragging = useRef(false)
-  const leftPctRef = useRef(70)
   const tickerInputRef = useRef(null)
   const backtesterRef = useRef(null)
 
@@ -129,29 +134,19 @@ function App() {
   const selected = nodes.find((node) => node.id === selectedId) ?? null
 
   useEffect(() => {
-    if (!selected || !listRef.current) return
-    const row = listRef.current.querySelector(`[data-id="${selected.id}"]`)
-    row?.scrollIntoView({ block: 'nearest' })
+    if (!selected) return
+    listRef.current
+      ?.querySelector(`[data-id="${selected.id}"]`)
+      ?.scrollIntoView({ block: 'nearest' })
+    tableRef.current
+      ?.querySelector(`[data-id="${selected.id}"]`)
+      ?.scrollIntoView({ block: 'nearest' })
   }, [selected])
 
   useEffect(() => {
     if (!selected) return
     markerRefs.current[selected.id]?.openPopup()
   }, [selected])
-
-  const applySplit = (clientX) => {
-    const split = splitRef.current
-    if (!split) return
-    const rect = split.getBoundingClientRect()
-    const divider = 10
-    const minLeft = Math.min(480, rect.width * 0.45)
-    const maxLeft = rect.width - 300 - divider
-    const nextPx = Math.min(maxLeft, Math.max(minLeft, clientX - rect.left))
-    const nextPct = (nextPx / rect.width) * 100
-    leftPctRef.current = nextPct
-    split.style.setProperty('--left', `${nextPct}%`)
-    mapRef.current?.invalidateSize()
-  }
 
   const selectNode = (node) => {
     setSelectedId(node.id)
@@ -203,22 +198,91 @@ function App() {
   }
 
   return (
-    <div className="flex h-screen w-screen flex-col overflow-hidden bg-slate-50 text-slate-900">
-      <header className="flex items-center justify-between bg-white border-b border-slate-200/80 px-6 py-3.5">
+    <div className="h-screen w-screen overflow-hidden flex flex-col bg-slate-100 text-slate-900 font-sans antialiased">
+      <header className="flex shrink-0 items-center justify-between border-b border-slate-200/80 bg-white px-4 py-2">
         <div className="flex items-center gap-2.5">
-          <span className="bg-emerald-500 animate-pulse h-2 w-2 rounded-full shadow-[0_0_8px_rgba(16,185,129,0.85)]" />
-          <h1 className="text-sm font-semibold tracking-[0.14em] text-slate-900">
+          <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.85)]" />
+          <h1 className="text-xs font-semibold tracking-[0.14em] text-slate-900">
             HEDGEHACKS / TERMINAL
           </h1>
         </div>
-        <p className="text-[11px] font-mono uppercase tracking-wider text-slate-400">
+        <p className={LABEL}>
           {nodes.length} nodes · {Object.keys(typeCounts).length} classes
         </p>
       </header>
 
-      <div className="split flex min-h-0 flex-1" ref={splitRef}>
-        <section className="left-panel" aria-label="Map and asset book">
-          <div className="map-stage">
+      <div className="flex-1 grid grid-cols-12 gap-2 p-2 overflow-hidden min-h-0">
+        <section
+          className="col-span-3 min-h-0 bg-white border border-slate-200/80 rounded-xl shadow-sm flex flex-col p-3 overflow-hidden"
+          aria-label="Filters and assets"
+        >
+          <p className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
+            Filters & assets
+          </p>
+          <input
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder="Search name, commodity, or ticker"
+            aria-label="Search commodity nodes"
+            className="mt-2 bg-slate-50 border border-slate-200 text-xs py-1.5 px-3 rounded-lg outline-none focus:ring-1 focus:ring-slate-900"
+          />
+          <div
+            className="mt-2 flex flex-wrap gap-1.5"
+            role="tablist"
+            aria-label="Filter by asset type"
+          >
+            {FILTERS.map((filter) => (
+              <button
+                key={filter}
+                type="button"
+                onClick={() => setTypeFilter(filter)}
+                className={
+                  filter === typeFilter
+                    ? 'bg-slate-900 text-white font-medium text-xs py-1 px-3 rounded-md'
+                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200 text-xs py-1 px-3 rounded-md transition-all'
+                }
+              >
+                {filter === 'All' ? `All ${nodes.length}` : filter}
+              </button>
+            ))}
+          </div>
+          <p className={`${LABEL} mt-3`}>
+            {filtered.length} shown
+          </p>
+          {filtered.length === 0 ? (
+            <p className="mt-2 text-xs text-slate-500">No assets match this search.</p>
+          ) : (
+            <ul ref={listRef} className="mt-1 min-h-0 flex-1 overflow-y-auto divide-y divide-slate-100">
+              {filtered.map((node) => (
+                <li key={node.id}>
+                  <button
+                    type="button"
+                    data-id={node.id}
+                    onClick={() => selectNode(node)}
+                    className={`flex w-full items-center justify-between gap-2 py-1.5 text-left transition-colors hover:bg-slate-50 ${
+                      node.id === selectedId ? 'bg-slate-50' : ''
+                    }`}
+                  >
+                    <span className="min-w-0">
+                      <span className="block truncate text-xs font-medium text-slate-900">
+                        {node.name}
+                      </span>
+                      <span className="block truncate text-[10px] text-slate-500">
+                        {node.commodity}
+                      </span>
+                    </span>
+                    <span className="shrink-0 font-mono text-[10px] font-semibold text-emerald-600">
+                      {node.ticker}
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+
+        <section className="center-col col-span-6" aria-label="Map and asset table">
+          <div className="map-frame bg-white border border-slate-200/80 rounded-xl shadow-sm overflow-hidden relative">
             <MapContainer
               center={[20, 10]}
               zoom={2}
@@ -229,12 +293,12 @@ function App() {
               style={{ width: '100%', height: '100%' }}
             >
               <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+                attribution="Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ"
+                url="https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}"
               />
               <MapBridge mapRef={mapRef} />
               <FocusNode node={selected} />
-              {nodes.map((node) => (
+              {filtered.map((node) => (
                 <Marker
                   key={node.id}
                   position={[node.lat, node.lng]}
@@ -248,15 +312,15 @@ function App() {
                   }}
                 >
                   <Popup>
-                    <div className="min-w-[180px]">
-                      <strong className="block text-sm font-semibold text-slate-900">
+                    <div className="min-w-[160px]">
+                      <strong className="block text-xs font-semibold text-slate-900">
                         {node.name}
                       </strong>
-                      <p className="mt-1 text-xs text-slate-500">{node.type}</p>
-                      <p className="text-emerald-600 font-mono text-sm font-semibold">
+                      <p className="mt-1 text-[10px] text-slate-500">{node.type}</p>
+                      <p className="font-mono text-xs font-semibold text-emerald-600">
                         {node.commodity} · {node.ticker}
                       </p>
-                      <p className="text-xs text-slate-500">
+                      <p className="text-[10px] text-slate-500">
                         {formatCoordinate(node.lat, 'N', 'S')},{' '}
                         {formatCoordinate(node.lng, 'E', 'W')}
                       </p>
@@ -265,16 +329,11 @@ function App() {
                 </Marker>
               ))}
             </MapContainer>
-            <div className="absolute bottom-3 left-3 z-[500] flex flex-col gap-1.5 rounded-2xl border border-slate-200/80 bg-white/90 p-3 shadow-sm backdrop-blur-sm">
-              <p className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
-                Node types
-              </p>
+            <div className="absolute bottom-2 left-2 z-[500] rounded-lg border border-slate-200/80 bg-white/95 px-2 py-1.5 shadow-sm">
+              <p className={LABEL}>Node types</p>
               {Object.entries(TYPE_COLORS).map(([type, color]) => (
-                <div className="flex items-center gap-2 text-xs text-slate-700" key={type}>
-                  <span
-                    className="h-2 w-2 rounded-full"
-                    style={{ background: color }}
-                  />
+                <div className="mt-1 flex items-center gap-1.5 text-[10px] text-slate-600" key={type}>
+                  <span className="h-1.5 w-1.5 rounded-full" style={{ background: color }} />
                   <span>
                     {type} · {typeCounts[type] ?? 0}
                   </span>
@@ -283,219 +342,133 @@ function App() {
             </div>
           </div>
 
-          <div className="asset-dock flex min-h-0 flex-col px-3 pb-3 pt-2">
-            <div className="flex min-h-0 flex-1 flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm">
-              <div className="flex flex-col gap-2.5 border-b border-slate-100 px-3 py-3">
-                <input
-                  value={query}
-                  onChange={(event) => setQuery(event.target.value)}
-                  placeholder="Search name, commodity, or ticker"
-                  aria-label="Search commodity nodes"
-                  className="h-9 w-full rounded-full border border-slate-200/80 bg-slate-50 px-4 text-sm text-slate-900 outline-none placeholder:text-slate-400 focus:border-slate-300 focus:bg-white"
-                />
-                <div
-                  className="flex items-center gap-1 overflow-x-auto bg-slate-100/80 p-1 rounded-full border border-slate-200/80"
-                  role="tablist"
-                  aria-label="Filter by asset type"
-                >
-                  {FILTERS.map((filter) => (
-                    <button
-                      key={filter}
-                      type="button"
-                      onClick={() => setTypeFilter(filter)}
-                      className={
-                        filter === typeFilter
-                          ? 'bg-slate-900 text-white shadow-sm rounded-full px-4 py-1.5 text-xs font-medium whitespace-nowrap'
-                          : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 rounded-full px-4 py-1.5 text-xs font-medium transition-all whitespace-nowrap'
-                      }
-                    >
-                      {filter === 'All' ? `All ${nodes.length}` : filter}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {filtered.length === 0 ? (
-                <p className="px-4 py-6 text-sm text-slate-500">No assets match this search.</p>
-              ) : (
-                <div ref={listRef} className="min-h-0 flex-1 overflow-auto">
-                  <table className="w-full border-collapse text-left">
-                    <thead className="sticky top-0 bg-white">
-                      <tr>
-                        {['Asset', 'Type', 'Commodity', 'Ticker', 'Coordinates'].map((heading) => (
-                          <th
-                            key={heading}
-                            className="text-[11px] font-mono uppercase tracking-wider text-slate-400 py-3 px-4 text-left font-medium"
-                          >
-                            {heading}
-                          </th>
-                        ))}
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-slate-100">
-                      {filtered.map((node) => (
-                        <tr
-                          key={node.id}
-                          data-id={node.id}
-                          tabIndex={0}
-                          onClick={() => selectNode(node)}
-                          onKeyDown={(event) => {
-                            if (event.key === 'Enter' || event.key === ' ') {
-                              event.preventDefault()
-                              selectNode(node)
-                            }
-                          }}
-                          className={`hover:bg-slate-50/80 transition-colors cursor-pointer ${
-                            node.id === selectedId ? 'bg-emerald-50/60' : ''
-                          }`}
+          <div className="table-frame bg-white border border-slate-200/80 rounded-xl shadow-sm overflow-hidden flex flex-col">
+            {filtered.length === 0 ? (
+              <p className="px-3 py-3 text-xs text-slate-500">No assets match this search.</p>
+            ) : (
+              <div ref={tableRef} className="min-h-0 flex-1 overflow-auto">
+                <table className="w-full border-collapse text-left">
+                  <thead className="sticky top-0 z-10">
+                    <tr className="bg-slate-50/80 border-b border-slate-200">
+                      {['Asset', 'Type', 'Commodity', 'Ticker', 'Coordinates'].map((heading) => (
+                        <th
+                          key={heading}
+                          className="bg-slate-50/80 border-b border-slate-200 text-[10px] font-mono uppercase tracking-wider text-slate-500 py-1.5 px-3 text-left font-medium"
                         >
-                          <td className="py-3 px-4 text-sm font-medium text-slate-900">
-                            {node.name}
-                          </td>
-                          <td className="py-3 px-4">
-                            <span
-                              className={`rounded-full text-[11px] px-2 py-0.5 ${TYPE_BADGES[node.type] ?? ''}`}
-                            >
-                              {node.type}
-                            </span>
-                          </td>
-                          <td className="py-3 px-4 text-sm text-slate-600">{node.commodity}</td>
-                          <td className="py-3 px-4 text-emerald-600 font-mono text-sm font-semibold">
-                            {node.ticker}
-                          </td>
-                          <td className="py-3 px-4 font-mono text-xs text-slate-500">
-                            {node.lat.toFixed(2)}, {node.lng.toFixed(2)}
-                          </td>
-                        </tr>
+                          {heading}
+                        </th>
                       ))}
-                    </tbody>
-                  </table>
-                </div>
-              )}
-            </div>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {filtered.map((node) => (
+                      <tr
+                        key={node.id}
+                        data-id={node.id}
+                        tabIndex={0}
+                        onClick={() => selectNode(node)}
+                        onKeyDown={(event) => {
+                          if (event.key === 'Enter' || event.key === ' ') {
+                            event.preventDefault()
+                            selectNode(node)
+                          }
+                        }}
+                        className={`text-xs py-1.5 px-3 border-b border-slate-100 hover:bg-slate-50 transition-colors cursor-pointer ${
+                          node.id === selectedId ? 'bg-slate-50' : ''
+                        }`}
+                      >
+                        <td className="py-1.5 px-3 font-medium text-slate-900">{node.name}</td>
+                        <td className="py-1.5 px-3">
+                          <span className={TYPE_BADGES[node.type]}>{node.type}</span>
+                        </td>
+                        <td className="py-1.5 px-3 text-slate-600">{node.commodity}</td>
+                        <td className="py-1.5 px-3 font-mono text-[10px] font-semibold text-emerald-600">
+                          {node.ticker}
+                        </td>
+                        <td className="py-1.5 px-3 font-mono text-[10px] text-slate-500">
+                          {node.lat.toFixed(2)}, {node.lng.toFixed(2)}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
           </div>
         </section>
 
-        <div
-          className="divider relative w-2.5 shrink-0 cursor-col-resize bg-slate-200/80"
-          role="separator"
-          aria-orientation="vertical"
-          aria-valuemin={45}
-          aria-valuemax={80}
-          aria-valuenow={Math.round(leftPct)}
-          aria-label="Resize map and backtester panels"
-          tabIndex={0}
-          onPointerDown={(event) => {
-            dragging.current = true
-            event.currentTarget.setPointerCapture(event.pointerId)
-            document.body.style.userSelect = 'none'
-          }}
-          onPointerMove={(event) => {
-            if (!dragging.current) return
-            applySplit(event.clientX)
-          }}
-          onPointerUp={(event) => {
-            if (!dragging.current) return
-            dragging.current = false
-            if (event.currentTarget.hasPointerCapture(event.pointerId)) {
-              event.currentTarget.releasePointerCapture(event.pointerId)
-            }
-            document.body.style.userSelect = ''
-            setLeftPct(leftPctRef.current)
-          }}
-          onKeyDown={(event) => {
-            if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return
-            const delta = event.key === 'ArrowLeft' ? -2 : 2
-            const split = splitRef.current
-            if (!split) return
-            const rect = split.getBoundingClientRect()
-            const next = leftPctRef.current + delta
-            applySplit(rect.left + (next / 100) * rect.width)
-            setLeftPct(leftPctRef.current)
-          }}
-        />
-
-        <aside className="right-panel overflow-auto bg-slate-50 p-4" aria-label="Active node and backtester">
-          <section className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm">
+        <aside
+          className="col-span-3 min-h-0 bg-white border border-slate-200/80 rounded-xl shadow-sm p-4 flex flex-col overflow-y-auto space-y-4"
+          aria-label="Analytics and backtester"
+        >
+          <section>
             <p className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
               {selected ? selected.type : 'Active node'}
             </p>
-            <h2 className="mt-1 text-2xl font-bold text-slate-900 tracking-tight">
+            <h2 className="mt-1 text-2xl font-bold tracking-tight text-slate-900">
               {selected ? selected.name : 'Choose a node'}
             </h2>
             {selected ? (
-              <dl className="mt-5 grid grid-cols-2 gap-4">
+              <dl className="mt-4 grid grid-cols-2 gap-3">
                 <div>
-                  <dt className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
-                    Commodity
-                  </dt>
-                  <dd className="mt-1 text-sm font-semibold text-slate-900">{selected.commodity}</dd>
+                  <dt className={LABEL}>Commodity</dt>
+                  <dd className="mt-1 text-xs font-semibold text-slate-900">{selected.commodity}</dd>
                 </div>
                 <div>
-                  <dt className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
-                    Ticker
-                  </dt>
-                  <dd className="mt-1 text-emerald-600 font-mono text-sm font-semibold">
+                  <dt className={LABEL}>Ticker</dt>
+                  <dd className="mt-1 font-mono text-xs font-semibold text-emerald-600">
                     {selected.ticker}
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
-                    Latitude
-                  </dt>
-                  <dd className="mt-1 text-emerald-600 font-mono text-sm font-semibold">
+                  <dt className={LABEL}>Latitude</dt>
+                  <dd className="mt-1 font-mono text-xs font-semibold text-emerald-600">
                     {formatCoordinate(selected.lat, 'N', 'S')}
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
-                    Longitude
-                  </dt>
-                  <dd className="mt-1 text-emerald-600 font-mono text-sm font-semibold">
+                  <dt className={LABEL}>Longitude</dt>
+                  <dd className="mt-1 font-mono text-xs font-semibold text-emerald-600">
                     {formatCoordinate(selected.lng, 'E', 'W')}
                   </dd>
                 </div>
               </dl>
             ) : (
-              <p className="mt-3 text-sm text-slate-500">
-                Select a marker or a table row to load coordinates and the benchmark ticker.
+              <p className="mt-3 text-xs text-slate-500">
+                Select a directory row, table row, or map marker.
               </p>
             )}
           </section>
 
-          <section className="mt-4 flex flex-col gap-3" ref={backtesterRef}>
-            <h2 className="px-1 text-[10px] font-mono tracking-widest text-slate-400 uppercase">
+          <section ref={backtesterRef} className="space-y-3 border-t border-slate-200/80 pt-4">
+            <h3 className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
               Quantitative options backtester
-            </h2>
+            </h3>
             <form
-              className="flex flex-col gap-3 rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm"
+              className="bg-slate-50 border border-slate-200/80 p-3 rounded-lg space-y-3"
               onSubmit={(event) => {
                 event.preventDefault()
                 runBacktest()
               }}
             >
-              <label className="flex flex-col gap-1.5">
-                <span className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
-                  Target ticker
-                </span>
+              <label className="block space-y-1">
+                <span className={LABEL}>Target ticker</span>
                 <input
                   ref={tickerInputRef}
                   value={targetTicker}
                   onChange={(event) => setTargetTicker(event.target.value)}
                   placeholder="CL=F"
                   aria-label="Target Ticker"
-                  className="h-10 rounded-xl border border-slate-200/80 bg-slate-50 px-3 text-emerald-600 font-mono text-sm font-semibold outline-none focus:border-slate-300 focus:bg-white"
+                  className={`${FIELD} font-mono font-semibold text-emerald-600`}
                 />
               </label>
-              <label className="flex flex-col gap-1.5">
-                <span className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
-                  Strategy
-                </span>
+              <label className="block space-y-1">
+                <span className={LABEL}>Strategy</span>
                 <select
                   value={strategy}
                   onChange={(event) => setStrategy(event.target.value)}
                   aria-label="Strategy"
-                  className="h-10 rounded-xl border border-slate-200/80 bg-slate-50 px-3 text-sm text-slate-900 outline-none focus:border-slate-300 focus:bg-white"
+                  className={FIELD}
                 >
                   {STRATEGIES.map((option) => (
                     <option key={option} value={option}>
@@ -504,11 +477,9 @@ function App() {
                   ))}
                 </select>
               </label>
-              <div className="grid grid-cols-2 gap-3">
-                <label className="flex flex-col gap-1.5">
-                  <span className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
-                    DTE
-                  </span>
+              <div className="grid grid-cols-2 gap-2">
+                <label className="block space-y-1">
+                  <span className={LABEL}>DTE</span>
                   <input
                     type="number"
                     min="1"
@@ -517,13 +488,11 @@ function App() {
                     onChange={(event) => setDte(event.target.value)}
                     placeholder="30"
                     aria-label="DTE"
-                    className="h-10 rounded-xl border border-slate-200/80 bg-slate-50 px-3 text-sm text-slate-900 outline-none focus:border-slate-300 focus:bg-white"
+                    className={FIELD}
                   />
                 </label>
-                <label className="flex flex-col gap-1.5">
-                  <span className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
-                    Budget ($USD)
-                  </span>
+                <label className="block space-y-1">
+                  <span className={LABEL}>Budget ($USD)</span>
                   <input
                     type="number"
                     min="1"
@@ -532,49 +501,45 @@ function App() {
                     onChange={(event) => setBudget(event.target.value)}
                     placeholder="10000"
                     aria-label="Budget in USD"
-                    className="h-10 rounded-xl border border-slate-200/80 bg-slate-50 px-3 text-sm text-slate-900 outline-none focus:border-slate-300 focus:bg-white"
+                    className={FIELD}
                   />
                 </label>
               </div>
-              <div className="grid grid-cols-2 gap-3">
-                <label className="flex flex-col gap-1.5">
-                  <span className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
-                    Start date
-                  </span>
+              <div className="grid grid-cols-2 gap-2">
+                <label className="block space-y-1">
+                  <span className={LABEL}>Start date</span>
                   <input
                     type="date"
                     value={startDate}
                     onChange={(event) => setStartDate(event.target.value)}
                     aria-label="Start date"
-                    className="h-10 rounded-xl border border-slate-200/80 bg-slate-50 px-3 text-sm text-slate-900 outline-none focus:border-slate-300 focus:bg-white"
+                    className={FIELD}
                   />
                 </label>
-                <label className="flex flex-col gap-1.5">
-                  <span className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
-                    End date
-                  </span>
+                <label className="block space-y-1">
+                  <span className={LABEL}>End date</span>
                   <input
                     type="date"
                     value={endDate}
                     onChange={(event) => setEndDate(event.target.value)}
                     aria-label="End date"
-                    className="h-10 rounded-xl border border-slate-200/80 bg-slate-50 px-3 text-sm text-slate-900 outline-none focus:border-slate-300 focus:bg-white"
+                    className={FIELD}
                   />
                 </label>
               </div>
-              {formError ? <p className="text-sm text-rose-600">{formError}</p> : null}
+              {formError ? <p className="text-xs text-rose-600">{formError}</p> : null}
               <button
                 type="submit"
-                className="h-11 rounded-full bg-slate-900 text-sm font-medium text-white shadow-sm transition-colors hover:bg-slate-800"
+                className="w-full bg-slate-900 text-white font-medium text-xs py-1.5 px-3 rounded-md"
               >
                 Run backtest
               </button>
             </form>
 
             {backtestRequest ? (
-              <p className="rounded-2xl border border-slate-200/80 bg-white px-4 py-3 text-sm text-slate-600 shadow-sm">
+              <p className="text-xs text-slate-600">
                 Awaiting backend integration for{' '}
-                <span className="text-emerald-600 font-mono text-sm font-semibold">
+                <span className="font-mono font-semibold text-emerald-600">
                   {backtestRequest.ticker}
                 </span>{' '}
                 · {backtestRequest.strategy} · {backtestRequest.dte} DTE · $
@@ -586,45 +551,34 @@ function App() {
               </p>
             ) : null}
 
-            <article className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm">
-              <h3 className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
-                P&L curve chart
-              </h3>
-              <div className="mt-3 grid min-h-[96px] place-items-center rounded-xl bg-slate-50 text-sm text-slate-400">
-                Awaiting backend integration
-              </div>
-            </article>
-            <article className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm">
-              <h3 className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
-                Win rate / max drawdown
-              </h3>
-              <div className="mt-3 grid grid-cols-2 gap-3">
-                <div className="rounded-xl bg-slate-50 px-3 py-3">
-                  <p className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
-                    Win rate
-                  </p>
-                  <p className="mt-1 text-emerald-600 font-mono text-sm font-semibold">—</p>
-                </div>
-                <div className="rounded-xl bg-slate-50 px-3 py-3">
-                  <p className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
-                    Max drawdown
-                  </p>
-                  <p className="mt-1 text-emerald-600 font-mono text-sm font-semibold">—</p>
+            <div className="space-y-3 border-t border-slate-200/80 pt-3">
+              <div>
+                <h3 className={LABEL}>P&L curve chart</h3>
+                <div className="mt-2 grid min-h-[72px] place-items-center rounded-md border border-slate-200/80 text-[10px] text-slate-400">
+                  Awaiting backend integration
                 </div>
               </div>
-            </article>
-            <article className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm">
-              <h3 className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
-                Backtest explanation
-              </h3>
-              <textarea
-                readOnly
-                rows={4}
-                aria-label="Backtest Explanation"
-                placeholder="An explanation of the backtest will appear here after the backend returns results."
-                className="mt-3 w-full resize-y rounded-xl border border-slate-200/80 bg-slate-50 px-3 py-2 text-sm text-slate-700 outline-none"
-              />
-            </article>
+              <div className="grid grid-cols-2 gap-2">
+                <div>
+                  <h3 className={LABEL}>Win rate</h3>
+                  <p className="mt-1 font-mono text-xs font-semibold text-emerald-600">—</p>
+                </div>
+                <div>
+                  <h3 className={LABEL}>Max drawdown</h3>
+                  <p className="mt-1 font-mono text-xs font-semibold text-emerald-600">—</p>
+                </div>
+              </div>
+              <div>
+                <h3 className={LABEL}>Backtest explanation</h3>
+                <textarea
+                  readOnly
+                  rows={3}
+                  aria-label="Backtest Explanation"
+                  placeholder="An explanation of the backtest will appear here after the backend returns results."
+                  className={`${FIELD} mt-2 resize-none`}
+                />
+              </div>
+            </div>
           </section>
         </aside>
       </div>
