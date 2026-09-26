@@ -13,6 +13,14 @@ const TYPE_COLORS = {
   'Choke Point': '#C2410C',
 }
 
+const TYPE_BADGES = {
+  'Extraction Site': 'bg-sky-50 text-sky-700 border border-sky-200/60',
+  'LNG Terminal': 'bg-cyan-50 text-cyan-700 border border-cyan-200/60',
+  'Grain Hub': 'bg-lime-50 text-lime-700 border border-lime-200/60',
+  Refinery: 'bg-violet-50 text-violet-700 border border-violet-200/60',
+  'Choke Point': 'bg-amber-50 text-amber-700 border border-amber-200/60',
+}
+
 const FILTERS = ['All', ...Object.keys(TYPE_COLORS)]
 const STRATEGIES = ['Short Strangle', 'Long Straddle']
 
@@ -195,18 +203,20 @@ function App() {
   }
 
   return (
-    <div className="terminal">
-      <header className="topbar">
-        <div className="brand">
-          <h1>Commodities Map and Backtester</h1>
+    <div className="flex h-screen w-screen flex-col overflow-hidden bg-slate-50 text-slate-900">
+      <header className="flex items-center justify-between bg-white border-b border-slate-200/80 px-6 py-3.5">
+        <div className="flex items-center gap-2.5">
+          <span className="bg-emerald-500 animate-pulse h-2 w-2 rounded-full shadow-[0_0_8px_rgba(16,185,129,0.85)]" />
+          <h1 className="text-sm font-semibold tracking-[0.14em] text-slate-900">
+            HEDGEHACKS / TERMINAL
+          </h1>
         </div>
-        <div className="topbar-meta">
-          <span className="stat-pill">{nodes.length} anchored nodes</span>
-          <span className="stat-pill">{Object.keys(typeCounts).length} asset classes</span>
-        </div>
+        <p className="text-[11px] font-mono uppercase tracking-wider text-slate-400">
+          {nodes.length} nodes · {Object.keys(typeCounts).length} classes
+        </p>
       </header>
 
-      <div className="split" ref={splitRef}>
+      <div className="split flex min-h-0 flex-1" ref={splitRef}>
         <section className="left-panel" aria-label="Map and asset book">
           <div className="map-stage">
             <MapContainer
@@ -238,13 +248,15 @@ function App() {
                   }}
                 >
                   <Popup>
-                    <div className="popup-card">
-                      <strong>{node.name}</strong>
-                      <p>{node.type}</p>
-                      <p>
-                        {node.commodity} · <span className="ticker">{node.ticker}</span>
+                    <div className="min-w-[180px]">
+                      <strong className="block text-sm font-semibold text-slate-900">
+                        {node.name}
+                      </strong>
+                      <p className="mt-1 text-xs text-slate-500">{node.type}</p>
+                      <p className="text-emerald-600 font-mono text-sm font-semibold">
+                        {node.commodity} · {node.ticker}
                       </p>
-                      <p>
+                      <p className="text-xs text-slate-500">
                         {formatCoordinate(node.lat, 'N', 'S')},{' '}
                         {formatCoordinate(node.lng, 'E', 'W')}
                       </p>
@@ -253,11 +265,16 @@ function App() {
                 </Marker>
               ))}
             </MapContainer>
-            <div className="legend">
-              <strong>Node types</strong>
+            <div className="absolute bottom-3 left-3 z-[500] flex flex-col gap-1.5 rounded-2xl border border-slate-200/80 bg-white/90 p-3 shadow-sm backdrop-blur-sm">
+              <p className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
+                Node types
+              </p>
               {Object.entries(TYPE_COLORS).map(([type, color]) => (
-                <div className="legend-row" key={type}>
-                  <span className="node-swatch" style={{ background: color }} />
+                <div className="flex items-center gap-2 text-xs text-slate-700" key={type}>
+                  <span
+                    className="h-2 w-2 rounded-full"
+                    style={{ background: color }}
+                  />
                   <span>
                     {type} · {typeCounts[type] ?? 0}
                   </span>
@@ -266,114 +283,101 @@ function App() {
             </div>
           </div>
 
-          <div className="asset-dock">
-            <div className="dock-tools">
-              <input
-                className="search"
-                value={query}
-                onChange={(event) => setQuery(event.target.value)}
-                placeholder="Search name, commodity, or ticker"
-                aria-label="Search commodity nodes"
-              />
-              <div className="filters" role="tablist" aria-label="Filter by asset type">
-                {FILTERS.map((filter) => (
-                  <button
-                    key={filter}
-                    type="button"
-                    className={filter === typeFilter ? 'filter is-active' : 'filter'}
-                    onClick={() => setTypeFilter(filter)}
-                  >
-                    {filter === 'All' ? `All ${nodes.length}` : filter}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div className="dock-body">
-              <article className="detail">
-                {selected ? (
-                  <>
-                    <p className="detail-kicker">{selected.type}</p>
-                    <h2>{selected.name}</h2>
-                    <div className="detail-grid">
-                      <div>
-                        <span>Commodity</span>
-                        <strong>{selected.commodity}</strong>
-                      </div>
-                      <div>
-                        <span>Ticker</span>
-                        <strong className="ticker">{selected.ticker}</strong>
-                      </div>
-                      <div>
-                        <span>Latitude</span>
-                        <strong className="ticker">
-                          {formatCoordinate(selected.lat, 'N', 'S')}
-                        </strong>
-                      </div>
-                      <div>
-                        <span>Longitude</span>
-                        <strong className="ticker">
-                          {formatCoordinate(selected.lng, 'E', 'W')}
-                        </strong>
-                      </div>
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <p className="detail-kicker">Selected asset</p>
-                    <h2>Choose a node</h2>
-                    <p>
-                      Click a map marker or a row in the book to read its physical
-                      coordinates, commodity, and benchmark ticker.
-                    </p>
-                  </>
-                )}
-              </article>
-
-              <div className="book">
-                <div className="book-head">
-                  <span>Asset book</span>
-                  <span>{filtered.length} shown</span>
+          <div className="asset-dock flex min-h-0 flex-col px-3 pb-3 pt-2">
+            <div className="flex min-h-0 flex-1 flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm">
+              <div className="flex flex-col gap-2.5 border-b border-slate-100 px-3 py-3">
+                <input
+                  value={query}
+                  onChange={(event) => setQuery(event.target.value)}
+                  placeholder="Search name, commodity, or ticker"
+                  aria-label="Search commodity nodes"
+                  className="h-9 w-full rounded-full border border-slate-200/80 bg-slate-50 px-4 text-sm text-slate-900 outline-none placeholder:text-slate-400 focus:border-slate-300 focus:bg-white"
+                />
+                <div
+                  className="flex items-center gap-1 overflow-x-auto bg-slate-100/80 p-1 rounded-full border border-slate-200/80"
+                  role="tablist"
+                  aria-label="Filter by asset type"
+                >
+                  {FILTERS.map((filter) => (
+                    <button
+                      key={filter}
+                      type="button"
+                      onClick={() => setTypeFilter(filter)}
+                      className={
+                        filter === typeFilter
+                          ? 'bg-slate-900 text-white shadow-sm rounded-full px-4 py-1.5 text-xs font-medium whitespace-nowrap'
+                          : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 rounded-full px-4 py-1.5 text-xs font-medium transition-all whitespace-nowrap'
+                      }
+                    >
+                      {filter === 'All' ? `All ${nodes.length}` : filter}
+                    </button>
+                  ))}
                 </div>
-                {filtered.length === 0 ? (
-                  <p className="empty-book">No assets match this search.</p>
-                ) : (
-                  <ul className="node-list" ref={listRef}>
-                    {filtered.map((node) => (
-                      <li key={node.id}>
-                        <button
-                          type="button"
-                          data-id={node.id}
-                          className={
-                            node.id === selectedId ? 'node-row is-selected' : 'node-row'
-                          }
-                          onClick={() => selectNode(node)}
-                        >
-                          <span
-                            className="node-swatch"
-                            style={{ background: TYPE_COLORS[node.type] }}
-                          />
-                          <span>
-                            <span className="node-name">{node.name}</span>
-                            <span className="node-meta">
-                              {node.commodity} · {node.ticker}
-                            </span>
-                          </span>
-                          <span className="node-coord">
-                            {node.lat.toFixed(1)}, {node.lng.toFixed(1)}
-                          </span>
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                )}
               </div>
+
+              {filtered.length === 0 ? (
+                <p className="px-4 py-6 text-sm text-slate-500">No assets match this search.</p>
+              ) : (
+                <div ref={listRef} className="min-h-0 flex-1 overflow-auto">
+                  <table className="w-full border-collapse text-left">
+                    <thead className="sticky top-0 bg-white">
+                      <tr>
+                        {['Asset', 'Type', 'Commodity', 'Ticker', 'Coordinates'].map((heading) => (
+                          <th
+                            key={heading}
+                            className="text-[11px] font-mono uppercase tracking-wider text-slate-400 py-3 px-4 text-left font-medium"
+                          >
+                            {heading}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-100">
+                      {filtered.map((node) => (
+                        <tr
+                          key={node.id}
+                          data-id={node.id}
+                          tabIndex={0}
+                          onClick={() => selectNode(node)}
+                          onKeyDown={(event) => {
+                            if (event.key === 'Enter' || event.key === ' ') {
+                              event.preventDefault()
+                              selectNode(node)
+                            }
+                          }}
+                          className={`hover:bg-slate-50/80 transition-colors cursor-pointer ${
+                            node.id === selectedId ? 'bg-emerald-50/60' : ''
+                          }`}
+                        >
+                          <td className="py-3 px-4 text-sm font-medium text-slate-900">
+                            {node.name}
+                          </td>
+                          <td className="py-3 px-4">
+                            <span
+                              className={`rounded-full text-[11px] px-2 py-0.5 ${TYPE_BADGES[node.type] ?? ''}`}
+                            >
+                              {node.type}
+                            </span>
+                          </td>
+                          <td className="py-3 px-4 text-sm text-slate-600">{node.commodity}</td>
+                          <td className="py-3 px-4 text-emerald-600 font-mono text-sm font-semibold">
+                            {node.ticker}
+                          </td>
+                          <td className="py-3 px-4 font-mono text-xs text-slate-500">
+                            {node.lat.toFixed(2)}, {node.lng.toFixed(2)}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
             </div>
           </div>
         </section>
 
         <div
-          className="divider"
+          className="divider relative w-2.5 shrink-0 cursor-col-resize bg-slate-200/80"
           role="separator"
           aria-orientation="vertical"
           aria-valuemin={45}
@@ -411,32 +415,87 @@ function App() {
           }}
         />
 
-        <aside className="right-panel" aria-label="Quantitative options backtester">
-          <section className="backtester" ref={backtesterRef}>
-            <h2 className="panel-title">Quantitative options backtester</h2>
+        <aside className="right-panel overflow-auto bg-slate-50 p-4" aria-label="Active node and backtester">
+          <section className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm">
+            <p className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
+              {selected ? selected.type : 'Active node'}
+            </p>
+            <h2 className="mt-1 text-2xl font-bold text-slate-900 tracking-tight">
+              {selected ? selected.name : 'Choose a node'}
+            </h2>
+            {selected ? (
+              <dl className="mt-5 grid grid-cols-2 gap-4">
+                <div>
+                  <dt className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
+                    Commodity
+                  </dt>
+                  <dd className="mt-1 text-sm font-semibold text-slate-900">{selected.commodity}</dd>
+                </div>
+                <div>
+                  <dt className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
+                    Ticker
+                  </dt>
+                  <dd className="mt-1 text-emerald-600 font-mono text-sm font-semibold">
+                    {selected.ticker}
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
+                    Latitude
+                  </dt>
+                  <dd className="mt-1 text-emerald-600 font-mono text-sm font-semibold">
+                    {formatCoordinate(selected.lat, 'N', 'S')}
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
+                    Longitude
+                  </dt>
+                  <dd className="mt-1 text-emerald-600 font-mono text-sm font-semibold">
+                    {formatCoordinate(selected.lng, 'E', 'W')}
+                  </dd>
+                </div>
+              </dl>
+            ) : (
+              <p className="mt-3 text-sm text-slate-500">
+                Select a marker or a table row to load coordinates and the benchmark ticker.
+              </p>
+            )}
+          </section>
+
+          <section className="mt-4 flex flex-col gap-3" ref={backtesterRef}>
+            <h2 className="px-1 text-[10px] font-mono tracking-widest text-slate-400 uppercase">
+              Quantitative options backtester
+            </h2>
             <form
-              className="intel-card"
+              className="flex flex-col gap-3 rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm"
               onSubmit={(event) => {
                 event.preventDefault()
                 runBacktest()
               }}
             >
-              <label className="field">
-                <span>Target Ticker</span>
+              <label className="flex flex-col gap-1.5">
+                <span className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
+                  Target ticker
+                </span>
                 <input
                   ref={tickerInputRef}
                   value={targetTicker}
                   onChange={(event) => setTargetTicker(event.target.value)}
                   placeholder="CL=F"
                   aria-label="Target Ticker"
+                  className="h-10 rounded-xl border border-slate-200/80 bg-slate-50 px-3 text-emerald-600 font-mono text-sm font-semibold outline-none focus:border-slate-300 focus:bg-white"
                 />
               </label>
-              <label className="field">
-                <span>Strategy</span>
+              <label className="flex flex-col gap-1.5">
+                <span className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
+                  Strategy
+                </span>
                 <select
                   value={strategy}
                   onChange={(event) => setStrategy(event.target.value)}
                   aria-label="Strategy"
+                  className="h-10 rounded-xl border border-slate-200/80 bg-slate-50 px-3 text-sm text-slate-900 outline-none focus:border-slate-300 focus:bg-white"
                 >
                   {STRATEGIES.map((option) => (
                     <option key={option} value={option}>
@@ -445,9 +504,11 @@ function App() {
                   ))}
                 </select>
               </label>
-              <div className="field-row">
-                <label className="field">
-                  <span>DTE</span>
+              <div className="grid grid-cols-2 gap-3">
+                <label className="flex flex-col gap-1.5">
+                  <span className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
+                    DTE
+                  </span>
                   <input
                     type="number"
                     min="1"
@@ -456,10 +517,13 @@ function App() {
                     onChange={(event) => setDte(event.target.value)}
                     placeholder="30"
                     aria-label="DTE"
+                    className="h-10 rounded-xl border border-slate-200/80 bg-slate-50 px-3 text-sm text-slate-900 outline-none focus:border-slate-300 focus:bg-white"
                   />
                 </label>
-                <label className="field">
-                  <span>Budget ($USD)</span>
+                <label className="flex flex-col gap-1.5">
+                  <span className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
+                    Budget ($USD)
+                  </span>
                   <input
                     type="number"
                     min="1"
@@ -468,74 +532,99 @@ function App() {
                     onChange={(event) => setBudget(event.target.value)}
                     placeholder="10000"
                     aria-label="Budget in USD"
+                    className="h-10 rounded-xl border border-slate-200/80 bg-slate-50 px-3 text-sm text-slate-900 outline-none focus:border-slate-300 focus:bg-white"
                   />
                 </label>
               </div>
-              <div className="field-row">
-                <label className="field">
-                  <span>Start date</span>
+              <div className="grid grid-cols-2 gap-3">
+                <label className="flex flex-col gap-1.5">
+                  <span className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
+                    Start date
+                  </span>
                   <input
                     type="date"
                     value={startDate}
                     onChange={(event) => setStartDate(event.target.value)}
                     aria-label="Start date"
+                    className="h-10 rounded-xl border border-slate-200/80 bg-slate-50 px-3 text-sm text-slate-900 outline-none focus:border-slate-300 focus:bg-white"
                   />
                 </label>
-                <label className="field">
-                  <span>End date</span>
+                <label className="flex flex-col gap-1.5">
+                  <span className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
+                    End date
+                  </span>
                   <input
                     type="date"
                     value={endDate}
                     onChange={(event) => setEndDate(event.target.value)}
                     aria-label="End date"
+                    className="h-10 rounded-xl border border-slate-200/80 bg-slate-50 px-3 text-sm text-slate-900 outline-none focus:border-slate-300 focus:bg-white"
                   />
                 </label>
               </div>
-              {formError ? <p className="form-error">{formError}</p> : null}
-              <button type="submit" className="run-button">
-                RUN BACKTEST
+              {formError ? <p className="text-sm text-rose-600">{formError}</p> : null}
+              <button
+                type="submit"
+                className="h-11 rounded-full bg-slate-900 text-sm font-medium text-white shadow-sm transition-colors hover:bg-slate-800"
+              >
+                Run backtest
               </button>
             </form>
 
-            <div className="card-stack">
-              {backtestRequest ? (
-                <p className="awaiting">
-                  Awaiting backend integration for {backtestRequest.ticker} ·{' '}
-                  {backtestRequest.strategy} · {backtestRequest.dte} DTE · $
-                  {backtestRequest.budget.toLocaleString()}
-                  {backtestRequest.startDate
-                    ? ` · ${backtestRequest.startDate} to ${backtestRequest.endDate}`
-                    : ''}
-                  .
-                </p>
-              ) : null}
-              <article className="intel-card">
-                <h3>P&L Curve Chart</h3>
-                <div className="result-frame">Awaiting backend integration</div>
-              </article>
-              <article className="intel-card">
-                <h3>Win Rate / Max Drawdown</h3>
-                <div className="metric-row">
-                  <div>
-                    <span>Win Rate</span>
-                    <strong>—</strong>
-                  </div>
-                  <div>
-                    <span>Max Drawdown</span>
-                    <strong>—</strong>
-                  </div>
+            {backtestRequest ? (
+              <p className="rounded-2xl border border-slate-200/80 bg-white px-4 py-3 text-sm text-slate-600 shadow-sm">
+                Awaiting backend integration for{' '}
+                <span className="text-emerald-600 font-mono text-sm font-semibold">
+                  {backtestRequest.ticker}
+                </span>{' '}
+                · {backtestRequest.strategy} · {backtestRequest.dte} DTE · $
+                {backtestRequest.budget.toLocaleString()}
+                {backtestRequest.startDate
+                  ? ` · ${backtestRequest.startDate} to ${backtestRequest.endDate}`
+                  : ''}
+                .
+              </p>
+            ) : null}
+
+            <article className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm">
+              <h3 className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
+                P&L curve chart
+              </h3>
+              <div className="mt-3 grid min-h-[96px] place-items-center rounded-xl bg-slate-50 text-sm text-slate-400">
+                Awaiting backend integration
+              </div>
+            </article>
+            <article className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm">
+              <h3 className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
+                Win rate / max drawdown
+              </h3>
+              <div className="mt-3 grid grid-cols-2 gap-3">
+                <div className="rounded-xl bg-slate-50 px-3 py-3">
+                  <p className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
+                    Win rate
+                  </p>
+                  <p className="mt-1 text-emerald-600 font-mono text-sm font-semibold">—</p>
                 </div>
-              </article>
-              <article className="intel-card">
-                <h3>Backtest Explanation</h3>
-                <textarea
-                  readOnly
-                  rows={4}
-                  aria-label="Backtest Explanation"
-                  placeholder="An explanation of the backtest will appear here after the backend returns results."
-                />
-              </article>
-            </div>
+                <div className="rounded-xl bg-slate-50 px-3 py-3">
+                  <p className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
+                    Max drawdown
+                  </p>
+                  <p className="mt-1 text-emerald-600 font-mono text-sm font-semibold">—</p>
+                </div>
+              </div>
+            </article>
+            <article className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm">
+              <h3 className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
+                Backtest explanation
+              </h3>
+              <textarea
+                readOnly
+                rows={4}
+                aria-label="Backtest Explanation"
+                placeholder="An explanation of the backtest will appear here after the backend returns results."
+                className="mt-3 w-full resize-y rounded-xl border border-slate-200/80 bg-slate-50 px-3 py-2 text-sm text-slate-700 outline-none"
+              />
+            </article>
           </section>
         </aside>
       </div>

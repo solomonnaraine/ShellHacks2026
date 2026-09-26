@@ -1,35 +1,6 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+@import 'tailwindcss';
 
-html,
-body,
-#root {
-  margin: 0;
-  height: 100%;
-  width: 100%;
-  background: #e0f2fe;
-  color: #0f172a;
-}
-
-body {
-  font-family: "Segoe UI", system-ui, sans-serif;
-  font-size: 15px;
-  line-height: 1.45;
-}
-
-button,
-input,
-select,
-textarea {
-  font: inherit;
-  color: inherit;
-}
-
-p,
-h1,
-h2 {
-  margin: 0;
+.leaflet-container img {
+  max-width: none !important;
+  max-height: none !important;
 }
