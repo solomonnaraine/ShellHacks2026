@@ -9,11 +9,7 @@ const SOLID_COLORS = {
   'Choke Point': '#f43f5e',
 }
 
-function getNodeSolidColor(type) {
-  return SOLID_COLORS[type] ?? '#0284c7'
-}
-
-function getNodeGlowColor(type) {
+function getNodeColor(type) {
   return SOLID_COLORS[type] ?? '#0284c7'
 }
 
@@ -21,12 +17,29 @@ export default function GlobeViewport({ nodes, selected, active, onSelect }) {
   const wrapRef = useRef(null)
   const globeRef = useRef(null)
   const onSelectRef = useRef(onSelect)
+  const selectedIdRef = useRef(selected?.id)
+  const markers = useRef(new Map())
   const [size, setSize] = useState({ width: 0, height: 0 })
   const [countries, setCountries] = useState([])
 
   useEffect(() => {
     onSelectRef.current = onSelect
   }, [onSelect])
+
+  useEffect(() => {
+    selectedIdRef.current = selected?.id
+    markers.current.forEach((marker, id) => {
+      const dot = marker.firstElementChild
+      if (!dot) return
+      const selectedNode = id === selected?.id
+      const size = selectedNode ? '14px' : '10px'
+      dot.style.width = size
+      dot.style.height = size
+      dot.style.boxShadow = selectedNode
+        ? '0 0 12px rgba(2, 132, 199, 0.8)'
+        : '0 2px 4px rgba(0,0,0,0.15)'
+    })
+  }, [selected])
 
   useEffect(() => {
     const controller = new AbortController()
@@ -99,11 +112,49 @@ export default function GlobeViewport({ nodes, selected, active, onSelect }) {
           pointsData={nodes}
           pointLat="lat"
           pointLng="lng"
-          pointColor={(node) => getNodeSolidColor(node.type)}
-          pointRadius={0.8}
-          pointAltitude={(node) => (node.id === selected?.id ? 0.05 : 0.02)}
+          pointColor={(node) => getNodeColor(node.type)}
+          pointRadius={0.7}
+          pointAltitude={0.015}
           pointsMerge={false}
           pointsTransitionDuration={0}
+          htmlElementsData={nodes}
+          htmlLat="lat"
+          htmlLng="lng"
+          htmlAltitude={0.02}
+          htmlElement={(node) => {
+            let marker = markers.current.get(node.id)
+            if (!marker) {
+              marker = document.createElement('div')
+              marker.style.pointerEvents = 'auto'
+              marker.style.cursor = 'pointer'
+              const dot = document.createElement('div')
+              const selectedNode = node.id === selectedIdRef.current
+              const size = selectedNode ? '14px' : '10px'
+              dot.style.width = size
+              dot.style.height = size
+              dot.style.backgroundColor = getNodeColor(node.type)
+              dot.style.border = '2px solid #ffffff'
+              dot.style.borderRadius = '50%'
+              dot.style.boxShadow = selectedNode
+                ? '0 0 12px rgba(2, 132, 199, 0.8)'
+                : '0 2px 4px rgba(0,0,0,0.15)'
+              dot.style.transition = 'transform 0.15s ease'
+              marker.appendChild(dot)
+              marker.addEventListener('click', (event) => {
+                event.preventDefault()
+                event.stopPropagation()
+                onSelectRef.current(node)
+                globeRef.current?.pointOfView(
+                  { lat: node.lat, lng: node.lng, altitude: 1.5 },
+                  1000,
+                )
+              })
+              markers.current.set(node.id, marker)
+            }
+            marker.title = `${node.name} · ${node.ticker}`
+            marker.setAttribute('aria-label', node.name)
+            return marker
+          }}
           onPointClick={(point) => {
             onSelectRef.current(point)
             globeRef.current?.pointOfView({ lat: point.lat, lng: point.lng, altitude: 1.5 }, 1000)
@@ -117,13 +168,7 @@ export default function GlobeViewport({ nodes, selected, active, onSelect }) {
               <span style="color: #64748b;">${node.type} • ${node.commodity}</span>
             </div>
           `}
-          ringsData={nodes}
-          ringLat="lat"
-          ringLng="lng"
-          ringColor={(node) => getNodeGlowColor(node.type)}
-          ringMaxRadius={(node) => (node.id === selected?.id ? 3.5 : 1.8)}
-          ringPropagationSpeed={2.5}
-          ringRepeatPeriod={1200}
+          ringsData={[]}
         />
       ) : null}
     </div>
