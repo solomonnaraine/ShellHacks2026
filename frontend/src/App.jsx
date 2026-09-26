@@ -386,7 +386,7 @@ function App() {
                     <div
                       className={
                         projection === '3d'
-                          ? 'absolute inset-0 z-0'
+                          ? 'pointer-events-auto absolute inset-0 z-0'
                           : 'pointer-events-none invisible absolute inset-0 z-0'
                       }
                     >

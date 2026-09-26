@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Globe from 'react-globe.gl'
 
 const TYPE_COLORS = {
@@ -12,7 +12,6 @@ const TYPE_COLORS = {
 export default function GlobeViewport({ nodes, selected, active, onSelect }) {
   const wrapRef = useRef(null)
   const globeRef = useRef(null)
-  const elements = useRef(new Map())
   const onSelectRef = useRef(onSelect)
   const [size, setSize] = useState({ width: 0, height: 0 })
   const [countries, setCountries] = useState([])
@@ -65,35 +64,12 @@ export default function GlobeViewport({ nodes, selected, active, onSelect }) {
     )
   }, [active, selected])
 
-  useEffect(() => {
-    elements.current.forEach((element, id) => {
-      element.classList.toggle('is-active', id === selected?.id)
-    })
-  }, [selected])
-
-  const htmlElement = useCallback((node) => {
-    let element = elements.current.get(node.id)
-    if (!element) {
-      element = document.createElement('button')
-      element.type = 'button'
-      element.className = 'globe-node'
-      element.addEventListener('click', (event) => {
-        event.preventDefault()
-        event.stopPropagation()
-        onSelectRef.current(node)
-      })
-      elements.current.set(node.id, element)
-    }
-    const color = TYPE_COLORS[node.type] ?? '#0284c7'
-    element.style.background = color
-    element.style.color = color
-    element.setAttribute('aria-label', node.name)
-    element.title = `${node.name} · ${node.ticker}`
-    return element
+  useEffect(() => () => {
+    document.body.style.cursor = 'default'
   }, [])
 
   return (
-    <div ref={wrapRef} className="h-full w-full">
+    <div ref={wrapRef} className="pointer-events-auto h-full w-full">
       {size.width > 0 && size.height > 0 ? (
         <Globe
           ref={globeRef}
@@ -112,11 +88,27 @@ export default function GlobeViewport({ nodes, selected, active, onSelect }) {
           polygonAltitude={0.006}
           polygonsTransitionDuration={0}
           polygonLabel={({ properties: d }) => `<b>${d.ADMIN} (${d.ISO_A2})</b>`}
-          htmlElementsData={nodes}
-          htmlLat="lat"
-          htmlLng="lng"
-          htmlAltitude={0.02}
-          htmlElement={htmlElement}
+          pointsData={nodes}
+          pointLat="lat"
+          pointLng="lng"
+          pointColor={(node) => TYPE_COLORS[node.type] ?? '#0284c7'}
+          pointRadius={0.6}
+          pointAltitude={0.01}
+          pointsMerge={false}
+          pointsTransitionDuration={0}
+          onPointClick={(point) => {
+            onSelectRef.current(point)
+            globeRef.current?.pointOfView({ lat: point.lat, lng: point.lng, altitude: 1.5 }, 1000)
+          }}
+          onPointHover={(point) => {
+            document.body.style.cursor = point ? 'pointer' : 'default'
+          }}
+          pointLabel={(node) => `
+            <div style="background: #ffffff; color: #0f172a; padding: 6px 10px; border-radius: 6px; font-family: sans-serif; font-size: 12px; border: 1px solid #cbd5e1; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+              <strong style="color: #0284c7;">${node.name}</strong><br/>
+              <span style="color: #64748b;">${node.type} • ${node.commodity}</span>
+            </div>
+          `}
           ringsData={selected ? [selected] : []}
           ringLat="lat"
           ringLng="lng"

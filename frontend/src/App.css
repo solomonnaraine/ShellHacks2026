@@ -30,22 +30,3 @@
   box-shadow: none;
 }
 
-.globe-node {
-  display: block;
-  width: 8px;
-  height: 8px;
-  min-width: 0;
-  padding: 0;
-  border: 1px solid #fff;
-  border-radius: 999px;
-  box-shadow: 0 0 8px currentColor;
-  cursor: pointer;
-}
-
-.globe-node.is-active {
-  width: 12px;
-  height: 12px;
-  box-shadow:
-    0 0 0 3px rgb(2 132 199 / 0.35),
-    0 0 12px currentColor;
-}
