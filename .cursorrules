@@ -1,0 +1,21 @@
+# SHELLHACKS PROJECT CONTEXT & RULES
+
+## TECH STACK
+- Frontend: React (Vite), Leaflet.js (`react-leaflet`), CSS Modules / Standard CSS, `@google/genai` SDK.
+- Backend: Python (FastAPI), `yfinance`, pandas, numpy, uvicorn.
+- Deployment: Vercel (Frontend), Railway (Backend).
+
+## REPOSITORY STRUCTURE
+- `/frontend` -> All React code lives here.
+- `/backend` -> All Python / FastAPI code lives here.
+
+## GENERAL CODING RULES
+1. NEVER generate code that modifies files outside of the target working directory (`/frontend` or `/backend`).
+2. Always write clean, production-ready code with complete logic (NO placeholders, NO `// TODO: implement later` comments).
+3. Keep frontend calls to Gemini inside direct React SDK calls using `import.meta.env.VITE_GEMINI_API_KEY`.
+4. Ensure all map components inside Leaflet have explicit height/width CSS styles.
+5. Write functional components using modern React hooks (`useState`, `useEffect`, `useRef`).
+
+## DESIGN SYSTEM
+- Theme: Dark institutional-grade financial terminal (Bloomberg / Refinitiv inspired).
+- Palette: Dark slate gray (`#121212`), muted border grays (`#2A2A2A`), accent cyan/gold for interactive nodes.
