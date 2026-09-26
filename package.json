@@ -1,5 +1,8 @@
 {
   "dependencies": {
-    "react-resizable-panels": "^4.13.3"
+    "lucide-react": "^1.48.0",
+    "react-globe.gl": "^2.38.0",
+    "react-resizable-panels": "^4.13.3",
+    "recharts": "^3.10.1"
   }
 }

@@ -9,6 +9,7 @@ export default defineConfig({
     dedupe: ['react', 'react-dom'],
   },
   optimizeDeps: {
-    exclude: ['react-resizable-panels'],
+    include: ['frame-ticker', 'tinycolor2', 'h3-js', 'simplesignal', 'prop-types'],
+    exclude: ['react-resizable-panels', 'react-globe.gl', 'react-kapsule'],
   },
 })

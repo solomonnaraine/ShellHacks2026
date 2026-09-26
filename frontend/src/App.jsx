@@ -1,10 +1,41 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { Component, lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react'
 import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet'
 import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import nodes from './data/nodes.json'
+import { PayoffDiagram, PriceChart } from './AnalyticsCharts'
 import './App.css'
+
+const GlobeViewport = lazy(() => import('./GlobeViewport'))
+
+class GlobeBoundary extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { failed: false }
+  }
+
+  static getDerivedStateFromError() {
+    return { failed: true }
+  }
+
+  render() {
+    if (this.state.failed) {
+      return (
+        <div className="grid h-full place-items-center px-4 text-center text-xs text-slate-500">
+          The 3D globe could not be started. The 2D map is still available.
+        </div>
+      )
+    }
+    return this.props.children
+  }
+}
+
+const TRAY_TABS = [
+  ['directory', 'Asset Directory'],
+  ['price', 'Live Price & Volatility Chart'],
+  ['payoff', 'Options Payoff Diagram'],
+]
 
 const TYPE_COLORS = {
   'Extraction Site': '#1E3A8A',
@@ -106,6 +137,9 @@ function App() {
   const [budget, setBudget] = useState('')
   const [formError, setFormError] = useState('')
   const [backtestRequest, setBacktestRequest] = useState(null)
+  const [tray, setTray] = useState('directory')
+  const [projection, setProjection] = useState('2d')
+  const [globeReady, setGlobeReady] = useState(false)
 
   const listRef = useRef(null)
   const tableRef = useRef(null)
@@ -151,13 +185,20 @@ function App() {
     markerRefs.current[selected.id]?.openPopup()
   }, [selected])
 
-  const selectNode = (node) => {
+  const selectNode = (node, openChart = false) => {
     setSelectedId(node.id)
     setTargetTicker(node.ticker)
     setFormError('')
+    if (openChart) setTray('price')
     backtesterRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
     window.setTimeout(() => tickerInputRef.current?.focus(), 250)
   }
+
+  useEffect(() => {
+    if (projection !== '2d') return undefined
+    const frame = window.requestAnimationFrame(() => mapRef.current?.invalidateSize())
+    return () => window.cancelAnimationFrame(frame)
+  }, [projection])
 
   const runBacktest = () => {
     const ticker = targetTicker.trim().toUpperCase()
@@ -263,7 +304,7 @@ function App() {
                       <button
                         type="button"
                         data-id={node.id}
-                        onClick={() => selectNode(node)}
+                        onClick={() => selectNode(node, true)}
                         className={`flex w-full items-center justify-between gap-2 px-3 py-1.5 text-left transition-colors hover:bg-sky-50/60 ${
                           node.id === selectedId ? 'bg-sky-50' : ''
                         }`}
@@ -293,6 +334,13 @@ function App() {
             <PanelGroup direction="vertical" id="map-table" className="h-full w-full">
               <Panel defaultSize={65} minSize={30} id="map">
                 <div className="relative h-full w-full" aria-label="Commodity map">
+                  <div
+                    className={
+                      projection === '2d'
+                        ? 'absolute inset-0'
+                        : 'pointer-events-none invisible absolute inset-0'
+                    }
+                  >
                   <MapContainer
                     center={[20, 10]}
                     zoom={2}
@@ -318,7 +366,7 @@ function App() {
                           if (instance) markerRefs.current[node.id] = instance
                         }}
                         eventHandlers={{
-                          click: () => selectNode(node),
+                          click: () => selectNode(node, true),
                         }}
                       >
                         <Popup>
@@ -339,6 +387,61 @@ function App() {
                       </Marker>
                     ))}
                   </MapContainer>
+                  </div>
+                  {globeReady ? (
+                    <div
+                      className={
+                        projection === '3d'
+                          ? 'absolute inset-0 z-0'
+                          : 'pointer-events-none invisible absolute inset-0 z-0'
+                      }
+                    >
+                      <GlobeBoundary>
+                        <Suspense
+                          fallback={
+                            <div className="grid h-full place-items-center text-xs text-slate-500">
+                              Loading globe…
+                            </div>
+                          }
+                        >
+                          <GlobeViewport
+                            nodes={filtered}
+                            selected={selected}
+                            active={projection === '3d'}
+                            onSelect={(node) => selectNode(node, true)}
+                          />
+                        </Suspense>
+                      </GlobeBoundary>
+                    </div>
+                  ) : null}
+                  <div className="absolute right-2 top-2 z-[600] flex overflow-hidden rounded-md border border-sky-200 bg-white">
+                    <button
+                      type="button"
+                      onClick={() => setProjection('2d')}
+                      className={
+                        projection === '2d'
+                          ? 'bg-sky-600 px-2.5 py-1 text-xs font-medium text-white'
+                          : 'px-2.5 py-1 text-xs text-slate-600 hover:bg-sky-50'
+                      }
+                    >
+                      2D Map
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setGlobeReady(true)
+                        setProjection('3d')
+                      }}
+                      className={
+                        projection === '3d'
+                          ? 'bg-sky-600 px-2.5 py-1 text-xs font-medium text-white'
+                          : 'px-2.5 py-1 text-xs text-slate-600 hover:bg-sky-50'
+                      }
+                    >
+                      3D Globe
+                    </button>
+                  </div>
+                  {projection === '2d' ? (
                   <div className="absolute bottom-2 left-2 z-[500] rounded-md border border-slate-200 bg-white px-2 py-1.5">
                     <p className={LABEL}>Node types</p>
                     {Object.entries(TYPE_COLORS).map(([type, color]) => (
@@ -350,17 +453,41 @@ function App() {
                       </div>
                     ))}
                   </div>
+                  ) : null}
                 </div>
               </Panel>
 
               <PanelResizeHandle className={`${HANDLE} h-1 cursor-row-resize`} />
 
               <Panel defaultSize={35} minSize={15} id="table">
-                <div className="flex h-full min-h-0 flex-col overflow-hidden bg-white" aria-label="Asset data">
+                <div className="flex h-full min-h-0 flex-col overflow-hidden bg-white" aria-label="Asset analytics">
+                  <div className="flex shrink-0 gap-1 border-b border-slate-200 px-2 py-1" role="tablist">
+                    {TRAY_TABS.map(([id, label]) => (
+                      <button
+                        key={id}
+                        type="button"
+                        role="tab"
+                        aria-selected={tray === id}
+                        onClick={() => setTray(id)}
+                        className={
+                          tray === id
+                            ? 'rounded-md border border-sky-600 bg-sky-600 px-2.5 py-1 text-[11px] font-medium text-white'
+                            : 'rounded-md border border-transparent px-2.5 py-1 text-[11px] text-slate-500 hover:bg-sky-50 hover:text-sky-700'
+                        }
+                      >
+                        {label}
+                      </button>
+                    ))}
+                  </div>
                   {filtered.length === 0 ? (
-                    <p className="px-3 py-3 text-xs text-slate-500">No assets match this search.</p>
+                    <p className={`px-3 py-3 text-xs text-slate-500 ${tray === 'directory' ? '' : 'hidden'}`}>
+                      No assets match this search.
+                    </p>
                   ) : (
-                    <div ref={tableRef} className="min-h-0 flex-1 overflow-auto">
+                    <div
+                      ref={tableRef}
+                      className={tray === 'directory' ? 'min-h-0 flex-1 overflow-auto' : 'hidden'}
+                    >
                       <table className="w-full border-collapse text-left">
                         <thead className="sticky top-0 z-10">
                           <tr className="border-b border-slate-200 bg-sky-50/60">
@@ -408,6 +535,16 @@ function App() {
                       </table>
                     </div>
                   )}
+                  {tray === 'price' ? (
+                    <div className="min-h-0 flex-1">
+                      <PriceChart node={selected} />
+                    </div>
+                  ) : null}
+                  {tray === 'payoff' ? (
+                    <div className="min-h-0 flex-1">
+                      <PayoffDiagram node={selected} strategy={strategy} />
+                    </div>
+                  ) : null}
                 </div>
               </Panel>
             </PanelGroup>
