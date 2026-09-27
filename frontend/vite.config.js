@@ -48,8 +48,8 @@ function readBody(req) {
 
 function apiDevPlugin() {
   const handlers = {
-    '/api/backtest': new URL('../api/backtest.js', import.meta.url),
-    '/api/nodes': new URL('../api/nodes.js', import.meta.url),
+    '/api/backtest': new URL('./api/backtest.js', import.meta.url),
+    '/api/nodes': new URL('./api/nodes.js', import.meta.url),
   }
 
   return {

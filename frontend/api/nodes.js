@@ -2,7 +2,7 @@ import { createRequire } from 'node:module'
 import { applyCors } from './cors.js'
 
 const require = createRequire(import.meta.url)
-const nodes = require('../frontend/src/data/nodes.json')
+const nodes = require('../src/data/nodes.json')
 
 export default async function handler(req, res) {
   if (applyCors(req, res)) return

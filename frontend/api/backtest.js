@@ -1,4 +1,4 @@
-import { pricePath } from '../frontend/src/marketSeries.js'
+import { pricePath } from '../src/marketSeries.js'
 import { applyCors } from './cors.js'
 
 const STRATEGIES = ['Short Strangle', 'Long Straddle']
