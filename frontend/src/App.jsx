@@ -245,6 +245,28 @@ function App() {
     return () => window.cancelAnimationFrame(frame)
   }, [projection])
 
+  const downloadPythonModel = async () => {
+    try {
+      const response = await fetch('/quant/options_strangle_backtest.py')
+      if (!response.ok) {
+        setFormError('The Python model could not be downloaded.')
+        return
+      }
+      const source = await response.text()
+      const blob = new Blob([source], { type: 'text/x-python' })
+      const url = URL.createObjectURL(blob)
+      const link = document.createElement('a')
+      link.href = url
+      link.download = 'options_strangle_backtest.py'
+      document.body.appendChild(link)
+      link.click()
+      link.remove()
+      URL.revokeObjectURL(url)
+    } catch {
+      setFormError('The Python model could not be downloaded.')
+    }
+  }
+
   const runBacktest = async () => {
     const ticker = targetTicker.trim().toUpperCase()
     const dteValue = Number(dte)
@@ -740,13 +762,33 @@ function App() {
                     </label>
                   </div>
                   {formError ? <p className="text-xs text-rose-600">{formError}</p> : null}
-                  <button
-                    type="submit"
-                    disabled={backtestPending}
-                    className="w-full rounded-md bg-sky-600 px-4 py-2.5 text-xs font-semibold text-white transition-all hover:bg-sky-700 disabled:cursor-wait disabled:bg-sky-400"
-                  >
-                    {backtestPending ? 'Running backtest' : 'Run backtest'}
-                  </button>
+                  <div className="space-y-2">
+                    <button
+                      type="submit"
+                      disabled={backtestPending}
+                      className="w-full rounded-md bg-sky-600 px-4 py-2.5 text-xs font-semibold text-white transition-all hover:bg-sky-700 disabled:cursor-wait disabled:bg-sky-400"
+                    >
+                      {backtestPending ? 'Running backtest' : 'Run backtest'}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={downloadPythonModel}
+                      className="flex w-full items-center justify-center gap-2 rounded-md border border-slate-200 bg-white px-4 py-2.5 text-xs font-semibold text-slate-700 transition-all hover:border-sky-500 hover:text-sky-700"
+                    >
+                      <svg
+                        viewBox="0 0 16 16"
+                        className="h-3.5 w-3.5"
+                        aria-hidden="true"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                      >
+                        <path d="M5 4.5 2.5 8 5 11.5" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M8.5 11.5h5" strokeLinecap="round" />
+                      </svg>
+                      Download Python Model (.py)
+                    </button>
+                  </div>
                 </form>
 
                 <div className="space-y-3 border-t border-slate-200 pt-3">
