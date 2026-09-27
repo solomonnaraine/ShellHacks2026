@@ -827,17 +827,6 @@ function App() {
                       </p>
                     </div>
                   </div>
-                  <div>
-                    <h3 className={LABEL}>Backtest explanation</h3>
-                    <textarea
-                      readOnly
-                      rows={6}
-                      aria-label="Backtest Explanation"
-                      value={backtestResult?.explanation ?? ''}
-                      placeholder="An explanation of the backtest will appear here after the backend returns results."
-                      className={`${FIELD} resize-none`}
-                    />
-                  </div>
                 </div>
               </section>
             </aside>
