@@ -127,7 +127,7 @@ function MapBridge({ mapRef }) {
 
 function EquityCurve({ curve }) {
   if (!curve || curve.length < 2) return null
-  const values = curve.map((point) => point.equity)
+  const values = curve.map((point) => point.value)
   const min = Math.min(...values)
   const max = Math.max(...values)
   const span = max - min || 1
@@ -136,7 +136,7 @@ function EquityCurve({ curve }) {
   const points = curve
     .map((point, index) => {
       const x = (index / (curve.length - 1)) * width
-      const y = height - 8 - ((point.equity - min) / span) * (height - 16)
+      const y = height - 8 - ((point.value - min) / span) * (height - 16)
       return `${x},${y}`
     })
     .join(' ')
@@ -754,13 +754,13 @@ function App() {
                     <h3 className={LABEL}>P&L curve chart</h3>
                     <div className="grid min-h-[72px] place-items-center rounded-md border border-slate-200 text-xs text-slate-600">
                       {backtestResult ? (
-                        <EquityCurve curve={backtestResult.curve} />
+                        <EquityCurve curve={backtestResult.equityCurve} />
                       ) : (
                         'Run a backtest to plot equity.'
                       )}
                     </div>
                   </div>
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-3 gap-2">
                     <div>
                       <h3 className={LABEL}>Win rate</h3>
                       <p className={VALUE}>
@@ -773,12 +773,23 @@ function App() {
                         {backtestResult ? `${backtestResult.maxDrawdown.toFixed(1)}%` : '—'}
                       </p>
                     </div>
+                    <div>
+                      <h3 className={LABEL}>Total P&L</h3>
+                      <p className={VALUE}>
+                        {backtestResult
+                          ? backtestResult.totalPnL.toLocaleString('en-US', {
+                              style: 'currency',
+                              currency: 'USD',
+                            })
+                          : '—'}
+                      </p>
+                    </div>
                   </div>
                   <div>
                     <h3 className={LABEL}>Backtest explanation</h3>
                     <textarea
                       readOnly
-                      rows={4}
+                      rows={6}
                       aria-label="Backtest Explanation"
                       value={backtestResult?.explanation ?? ''}
                       placeholder="An explanation of the backtest will appear here after the backend returns results."
