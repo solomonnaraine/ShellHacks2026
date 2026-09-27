@@ -16,6 +16,15 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
+from google import genai
+
+client = genai.Client()
+
+response = client.models.generate_content(
+    model="gemini-3.6-flash",
+    con
+)
+
 logger = logging.getLogger(__name__)
 
 VALID_STRATEGIES = {

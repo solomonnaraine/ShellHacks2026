@@ -4,3 +4,4 @@ pydantic
 numpy
 pandas
 yfinance
+google-genai
