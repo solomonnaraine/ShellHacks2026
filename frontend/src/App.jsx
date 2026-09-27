@@ -3,7 +3,6 @@ import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet'
 import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
-import nodes from './data/nodes.json'
 import { PayoffDiagram, PriceChart } from './AnalyticsCharts'
 import './App.css'
 
@@ -126,7 +125,32 @@ function MapBridge({ mapRef }) {
   return null
 }
 
+function EquityCurve({ curve }) {
+  if (!curve || curve.length < 2) return null
+  const values = curve.map((point) => point.equity)
+  const min = Math.min(...values)
+  const max = Math.max(...values)
+  const span = max - min || 1
+  const width = 280
+  const height = 72
+  const points = curve
+    .map((point, index) => {
+      const x = (index / (curve.length - 1)) * width
+      const y = height - 8 - ((point.equity - min) / span) * (height - 16)
+      return `${x},${y}`
+    })
+    .join(' ')
+
+  return (
+    <svg viewBox={`0 0 ${width} ${height}`} className="h-[72px] w-full" role="img" aria-label="P and L curve">
+      <polyline fill="none" stroke="#0284c7" strokeWidth="2" points={points} />
+    </svg>
+  )
+}
+
 function App() {
+  const [nodes, setNodes] = useState([])
+  const [nodesError, setNodesError] = useState('')
   const [query, setQuery] = useState('')
   const [typeFilter, setTypeFilter] = useState('All')
   const [selectedId, setSelectedId] = useState(null)
@@ -137,7 +161,8 @@ function App() {
   const [endDate, setEndDate] = useState('')
   const [budget, setBudget] = useState('')
   const [formError, setFormError] = useState('')
-  const [backtestRequest, setBacktestRequest] = useState(null)
+  const [backtestPending, setBacktestPending] = useState(false)
+  const [backtestResult, setBacktestResult] = useState(null)
   const [tray, setTray] = useState('directory')
   const [projection, setProjection] = useState('2d')
   const [globeReady, setGlobeReady] = useState(false)
@@ -149,13 +174,32 @@ function App() {
   const tickerInputRef = useRef(null)
   const backtesterRef = useRef(null)
 
+  useEffect(() => {
+    const controller = new AbortController()
+    fetch('/api/nodes', { signal: controller.signal })
+      .then(async (response) => {
+        const payload = await response.json()
+        if (!response.ok) throw new Error(payload.error || 'The node directory could not be loaded.')
+        return payload.nodes
+      })
+      .then((loaded) => {
+        setNodes(loaded)
+        setNodesError('')
+      })
+      .catch((error) => {
+        if (error.name === 'AbortError') return
+        setNodesError(error.message || 'The node directory could not be loaded.')
+      })
+    return () => controller.abort()
+  }, [])
+
   const typeCounts = useMemo(() => {
     const tally = {}
     for (const node of nodes) {
       tally[node.type] = (tally[node.type] ?? 0) + 1
     }
     return tally
-  }, [])
+  }, [nodes])
 
   const filtered = useMemo(() => {
     const needle = query.trim().toLowerCase()
@@ -167,7 +211,7 @@ function App() {
         .toLowerCase()
         .includes(needle)
     })
-  }, [query, typeFilter])
+  }, [nodes, query, typeFilter])
 
   const selected = nodes.find((node) => node.id === selectedId) ?? null
 
@@ -201,45 +245,65 @@ function App() {
     return () => window.cancelAnimationFrame(frame)
   }, [projection])
 
-  const runBacktest = () => {
+  const runBacktest = async () => {
     const ticker = targetTicker.trim().toUpperCase()
     const dteValue = Number(dte)
     const budgetValue = Number(budget)
     if (!ticker) {
       setFormError('Enter a target ticker before running the backtest.')
-      setBacktestRequest(null)
+      setBacktestResult(null)
       return
     }
     if (!Number.isInteger(dteValue) || dteValue <= 0) {
       setFormError('DTE must be a whole number of days greater than zero.')
-      setBacktestRequest(null)
+      setBacktestResult(null)
       return
     }
     if ((startDate && !endDate) || (!startDate && endDate)) {
       setFormError('Enter both a start date and an end date, or leave both blank.')
-      setBacktestRequest(null)
+      setBacktestResult(null)
       return
     }
     if (startDate && endDate && endDate < startDate) {
       setFormError('The end date must be on or after the start date.')
-      setBacktestRequest(null)
+      setBacktestResult(null)
       return
     }
     if (!Number.isFinite(budgetValue) || budgetValue <= 0) {
       setFormError('Budget must be a USD amount greater than zero.')
-      setBacktestRequest(null)
+      setBacktestResult(null)
       return
     }
+
     setFormError('')
     setTargetTicker(ticker)
-    setBacktestRequest({
-      ticker,
-      strategy,
-      dte: dteValue,
-      startDate,
-      endDate,
-      budget: budgetValue,
-    })
+    setBacktestPending(true)
+    try {
+      const response = await fetch('/api/backtest', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ticker,
+          strategy,
+          dte: dteValue,
+          budget: budgetValue,
+          startDate,
+          endDate,
+        }),
+      })
+      const payload = await response.json()
+      if (!response.ok) {
+        setBacktestResult(null)
+        setFormError(payload.error || 'The backtest could not be completed.')
+        return
+      }
+      setBacktestResult(payload)
+    } catch {
+      setBacktestResult(null)
+      setFormError('The backtest service did not respond.')
+    } finally {
+      setBacktestPending(false)
+    }
   }
 
   return (
@@ -289,7 +353,11 @@ function App() {
                 </div>
                 <p className="mt-2 text-xs text-slate-600">{filtered.length} shown</p>
               </div>
-              {filtered.length === 0 ? (
+              {nodesError ? (
+                <p className="px-3 py-3 text-xs text-rose-600">{nodesError}</p>
+              ) : nodes.length === 0 ? (
+                <p className="px-3 py-3 text-xs text-slate-600">Loading assets.</p>
+              ) : filtered.length === 0 ? (
                 <p className="px-3 py-3 text-xs text-slate-600">No assets match this search.</p>
               ) : (
                 <ul ref={listRef} className="min-h-0 flex-1 divide-y divide-slate-100 overflow-y-auto">
@@ -674,50 +742,45 @@ function App() {
                   {formError ? <p className="text-xs text-rose-600">{formError}</p> : null}
                   <button
                     type="submit"
-                    className="w-full rounded-md bg-sky-600 px-4 py-2.5 text-xs font-semibold text-white transition-all hover:bg-sky-700"
+                    disabled={backtestPending}
+                    className="w-full rounded-md bg-sky-600 px-4 py-2.5 text-xs font-semibold text-white transition-all hover:bg-sky-700 disabled:cursor-wait disabled:bg-sky-400"
                   >
-                    Run backtest
+                    {backtestPending ? 'Running backtest' : 'Run backtest'}
                   </button>
                 </form>
-
-                {backtestRequest ? (
-                  <p className="text-xs text-slate-600">
-                    Awaiting backend integration for{' '}
-                    <span className="font-semibold text-slate-800">
-                      {backtestRequest.ticker}
-                    </span>{' '}
-                    · {backtestRequest.strategy} · {backtestRequest.dte} DTE · $
-                    {backtestRequest.budget.toLocaleString()}
-                    {backtestRequest.startDate
-                      ? ` · ${backtestRequest.startDate} to ${backtestRequest.endDate}`
-                      : ''}
-                    .
-                  </p>
-                ) : null}
 
                 <div className="space-y-3 border-t border-slate-200 pt-3">
                   <div>
                     <h3 className={LABEL}>P&L curve chart</h3>
                     <div className="grid min-h-[72px] place-items-center rounded-md border border-slate-200 text-xs text-slate-600">
-                      Awaiting backend integration
+                      {backtestResult ? (
+                        <EquityCurve curve={backtestResult.curve} />
+                      ) : (
+                        'Run a backtest to plot equity.'
+                      )}
                     </div>
                   </div>
                   <div className="grid grid-cols-2 gap-2">
                     <div>
                       <h3 className={LABEL}>Win rate</h3>
-                      <p className={VALUE}>—</p>
+                      <p className={VALUE}>
+                        {backtestResult ? `${backtestResult.winRate.toFixed(1)}%` : '—'}
+                      </p>
                     </div>
                     <div>
                       <h3 className={LABEL}>Max drawdown</h3>
-                      <p className={VALUE}>—</p>
+                      <p className={VALUE}>
+                        {backtestResult ? `${backtestResult.maxDrawdown.toFixed(1)}%` : '—'}
+                      </p>
                     </div>
                   </div>
                   <div>
                     <h3 className={LABEL}>Backtest explanation</h3>
                     <textarea
                       readOnly
-                      rows={3}
+                      rows={4}
                       aria-label="Backtest Explanation"
+                      value={backtestResult?.explanation ?? ''}
                       placeholder="An explanation of the backtest will appear here after the backend returns results."
                       className={`${FIELD} resize-none`}
                     />
